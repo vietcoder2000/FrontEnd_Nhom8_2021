@@ -1,0 +1,252 @@
+    .logoVNN img {
+        height: 50px;
+        width: auto;
+    }
+
+    .row1 {
+        height: 60px;
+    }
+
+    .hot {
+        position: relative;
+        left: 160px;
+        top: 15px;
+    }
+
+    .hot .hotCovid {
+        position: absolute;
+        border: 1px solid #971927;
+        border-radius: 10px;
+        height: 30px;
+        width: auto;
+        padding: 5px;
+        color: #971927;
+        text-transform: uppercase;
+    }
+
+    .hot .hotApp {
+        position: absolute;
+        border: 1px solid #971927;
+        left: 110px;
+        border-radius: 10px;
+        height: 30px;
+        width: auto;
+        padding: 5px;
+        color: #971927;
+        text-transform: uppercase;
+    }
+
+    .hot .hotCovid:hover {
+        background-color: #971927;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+    .hot .hotApp:hover {
+        background-color: #971927;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+    .search {
+        position: relative;
+        left: 140px;
+    }
+
+    .search .searchTinTuc {
+        position: absolute;
+        width: 170px;
+        height: 30px;
+        top: 15px;
+    }
+
+    .search .iconSearch i {
+        position: absolute;
+        font-size: 17px;
+        top: 22px;
+        left: 160px;
+        color: rgba(194, 194, 194, 0.856);
+        font-weight: 400;
+    }
+
+    .btnHeader {
+        position: relative;
+        left: 130px;
+        top: 4px;
+    }
+
+    .btnHeader .btnTinNong {
+        position: absolute;
+        top: 10px;
+        text-transform: uppercase;
+    }
+
+    .btnHeader .btnTin24 {
+        position: absolute;
+        left: 120px;
+        top: 10px;
+        text-transform: uppercase;
+    }
+
+    .btnHeader .btnTinNong:hover {
+        color: rgb(255, 255, 255);
+        background-color: #971927;
+    }
+
+    .btnHeader .btnTin24:hover {
+        color: rgb(255, 255, 255);
+        background-color: #006599;
+    }
+
+    .iconHeader {
+        position: relative;
+        top: 14px;
+    }
+
+    .iconHeader .iconFace {
+        position: absolute;
+        padding-left: 10px;
+        left: 80px;
+        width: 34px;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(130, 136, 136);
+        font-size: 22px;
+        border: 1px solid rgb(154, 156, 156);
+    }
+
+    .iconHeader .iconYoutube {
+        position: absolute;
+        left: 118px;
+        padding-left: 3.5px;
+        width: 34px;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(130, 136, 136);
+        font-size: 22px;
+        border: 1px solid rgb(154, 156, 156);
+    }
+
+    .iconHeader .iconUser {
+        position: absolute;
+        left: 155px;
+        padding-left: 6.5px;
+        width: 34px;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(130, 136, 136);
+        font-size: 22px;
+        border: 1px solid rgb(154, 156, 156);
+    }
+
+    .iconHeader .iconFace:hover {
+        color: #971927;
+        border: 1px solid #971927;
+    }
+
+    .iconHeader .iconYoutube:hover {
+        color: #971927;
+        border: 1px solid #971927;
+    }
+
+    .iconHeader .iconUser:hover {
+        color: #971927;
+        border: 1px solid #971927;
+    }
+
+    @media screen and (max-width:1200px) {
+        .hot {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width:770px) {
+        .btnHeader {
+            display: none;
+        }
+    }
+
+    .menuItem>li {
+        display: inline-block;
+    }
+
+    .menuItem .item>a {
+        color: black;
+        padding: 6px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .menuItem .iconTrangChu a {
+        color: #971927;
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .menuItem {
+        padding-left: 10px;
+    }
+
+    .menuItem .itemPoint .more i {
+        color: #971927;
+        font-size: 18px;
+        font-weight: 700;
+        padding-left: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        transform: rotate(90deg);
+    }
+
+    .menuItem .itemPoint:hover .more i {
+        color: rgb(255, 255, 255);
+        background-color: #971927;
+    }
+
+    .menuItem .item>a:hover {
+        color: rgb(255, 255, 255);
+        background-color: #971927;
+        text-decoration: none;
+    }
+
+    .menuItem .item:hover .subMenu {
+        display: block;
+    }
+
+    hr {
+        margin-top: 1px;
+        height: 1px;
+        background-color: #971927;
+    }
+
+    .menuItem .item {
+        position: relative;
+    }
+
+    .menuItem .item .subMenu {
+        display: none;
+        position: absolute;
+        top: 24px;
+        left: 0px;
+        padding-left: 0px;
+    }
+
+    .subMenu .subItem a {
+        background-color: rgb(219, 217, 221);
+        color: black;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 30px;
+        display: block;
+        padding-left: 6px;
+    }
+
+    .subMenu .subItem:hover a {
+        background-color: rgb(138, 115, 115);
+        color: rgb(255, 255, 255);
+    }
+
+    .subMenu {
+        background-color: rgb(219, 217, 221);
+        width: 120px;
+        list-style-type: none;
+    }
