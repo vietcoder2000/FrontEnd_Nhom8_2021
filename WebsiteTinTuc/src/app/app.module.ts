@@ -49,7 +49,7 @@ import { ContactComponent } from './footer/contact/contact.component';
     BanDocComponent,
     TuanVnComponent,
     XeComponent,
-    VideoComponent
+    VideoComponent,
 
     ContactComponent
 
