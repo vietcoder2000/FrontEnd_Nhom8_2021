@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+
 import { HomeComponent } from './home/home.component';
 import { ChinhTriComponent } from './chinh-tri/chinh-tri.component';
 import { ThoiSuComponent } from './thoi-su/thoi-su.component';
@@ -23,11 +24,15 @@ import { TuanVnComponent } from './tuan-vn/tuan-vn.component';
 import { XeComponent } from './xe/xe.component';
 import { VideoComponent } from './video/video.component';
 
+import { ContactComponent } from './footer/contact/contact.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+
     HomeComponent,
     ChinhTriComponent,
     ThoiSuComponent,
@@ -45,6 +50,9 @@ import { VideoComponent } from './video/video.component';
     TuanVnComponent,
     XeComponent,
     VideoComponent
+
+    ContactComponent
+
   ],
   imports: [
     BrowserModule,
