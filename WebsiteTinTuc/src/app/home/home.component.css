@@ -1,0 +1,12 @@
+.item{
+  width: 400px;
+  height: 400px;
+
+}
+a{
+  width: auto;
+  color: white;
+  font-size: large;
+  background: #971927;
+  font-weight: bold;
+}
