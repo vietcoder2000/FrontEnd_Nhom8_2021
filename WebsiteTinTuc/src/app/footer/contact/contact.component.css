@@ -1,1 +1,40 @@
-/* No CSS *//*# sourceMappingURL=contact.component.css.map */
+.titleContact {
+  text-transform: uppercase;
+  color: #240cc5;
+  font-weight: 550;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.content-left {
+  background-color: #dbd7d7;
+}
+
+.content-right {
+  background-color: #dbd7d7;
+}
+
+.labelform {
+  font-style: italic;
+  font-size: 10px;
+}
+
+.labelformcheck {
+  color: red;
+  font-style: italic;
+}
+
+label {
+  color: #3f4141;
+}
+
+.logo-mail-contact img {
+  width: 50%;
+  height: 50%;
+  margin: 7.5% 25%;
+}
+
+.listcontact li {
+  padding: 1px;
+}
+/*# sourceMappingURL=contact.component.css.map */
