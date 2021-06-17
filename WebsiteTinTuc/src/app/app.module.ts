@@ -25,6 +25,7 @@ import { XeComponent } from './xe/xe.component';
 import { VideoComponent } from './video/video.component';
 
 import { ContactComponent } from './footer/contact/contact.component';
+import { IntroduceComponent } from './footer/introduce/introduce.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ContactComponent } from './footer/contact/contact.component';
     XeComponent,
     VideoComponent,
 
-    ContactComponent
+    ContactComponent,
+      IntroduceComponent
 
   ],
   imports: [
