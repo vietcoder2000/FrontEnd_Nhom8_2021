@@ -2,6 +2,11 @@
         height: 50px;
         width: auto;
     }
+    /* .header {
+        position: fixed;
+        z-index: 99999;
+        margin-bottom: 50px;
+    } */
 
     .row1 {
         height: 60px;
@@ -165,6 +170,10 @@
             display: none;
         }
     }
+    /*
+    .menuItem {
+        position: fixed;
+    } */
 
     .menuItem>li {
         display: inline-block;
@@ -228,6 +237,8 @@
         top: 24px;
         left: 0px;
         padding-left: 0px;
+        z-index: 999999;
+        box-shadow: 1px 1px rgba(194, 194, 194, 0.856)
     }
 
     .subMenu .subItem a {
@@ -241,7 +252,7 @@
     }
 
     .subMenu .subItem:hover a {
-        background-color: rgb(138, 115, 115);
+        background-color: rgb(167, 103, 103);
         color: rgb(255, 255, 255);
     }
 

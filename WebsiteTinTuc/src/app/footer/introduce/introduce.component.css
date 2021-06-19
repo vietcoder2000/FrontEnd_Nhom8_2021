@@ -1,0 +1,50 @@
+body {
+    background-color: #1A1919;
+    text-align: center;
+}
+
+img {
+    transition: transform .3s;
+    padding-bottom: 20px;
+    box-shadow: 1px 1px rgba(66, 127, 155, 0.5)
+}
+
+h3 {
+    color: rgb(112, 165, 69);
+    font-weight: 550;
+}
+
+.title {
+    text-align: center;
+    color: #2044e4;
+    text-shadow: 2px 2px 0px #95ad8a, 4px 4px 0px rgba(240, 119, 119, 0.2);
+}
+
+p {
+    color: #646161;
+}
+
+.row1 {
+    margin-top: 20px;
+}
+
+img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.gridContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.gridTile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: center;
+}

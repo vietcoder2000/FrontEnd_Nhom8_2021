@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,7 +26,8 @@ import { VideoComponent } from './video/video.component';
 
 import { ContactComponent } from './footer/contact/contact.component';
 import { IntroduceComponent } from './footer/introduce/introduce.component';
-
+import { MoreComponent } from './more/more.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -53,12 +54,14 @@ import { IntroduceComponent } from './footer/introduce/introduce.component';
     VideoComponent,
 
     ContactComponent,
-      IntroduceComponent
+      IntroduceComponent,
+      MoreComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
