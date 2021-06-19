@@ -18,6 +18,7 @@ import {VideoComponent} from "./video/video.component";
 import {XeComponent} from "./xe/xe.component";
 import {GiaoDucComponent} from "./giao-duc/giao-duc.component";
 import { ContactComponent } from './footer/contact/contact.component';
+import { IntroduceComponent } from './footer/introduce/introduce.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -26,7 +27,7 @@ const routes: Routes = [
   ,{path:'giai-tri',component:GiaiTriComponent},{path:'kinh-doanh',component:KinhDoanhComponent},{path:'phap-luat',component:PhapLuatComponent}
   ,{path:'suc-khoe',component:SucKhoeComponent},{path:'the-gioi',component:TheGioiComponent},{path:'the-thao',component:TheThaoComponent}
   ,{path:'thoi-su',component:ThoiSuComponent},{path:'tuan-vn',component:TuanVnComponent},{path:'video',component:VideoComponent},{path:'xe',component:XeComponent}
-  ,{path:'giao-duc',component:GiaoDucComponent},{path:'contact',component:ContactComponent}
+  ,{path:'giao-duc',component:GiaoDucComponent},{path:'contact',component:ContactComponent},{path:'introduce',component:IntroduceComponent}
   ];
 
 @NgModule({
