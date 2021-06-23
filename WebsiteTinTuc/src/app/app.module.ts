@@ -23,18 +23,17 @@ import { BanDocComponent } from './ban-doc/ban-doc.component';
 import { TuanVnComponent } from './tuan-vn/tuan-vn.component';
 import { XeComponent } from './xe/xe.component';
 import { VideoComponent } from './video/video.component';
-
 import { ContactComponent } from './footer/contact/contact.component';
 import { IntroduceComponent } from './footer/introduce/introduce.component';
 import { MoreComponent } from './more/more.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
+import { NewRssService } from './Service/new-rss.service';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-
     HomeComponent,
     ChinhTriComponent,
     ThoiSuComponent,
@@ -61,7 +60,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatDialogModule
+    BrowserAnimationsModule,MatDialogModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
