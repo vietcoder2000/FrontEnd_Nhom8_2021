@@ -1,9 +1,10 @@
 
 
 export interface AppRss {
-  rss: Rss;
+  rss: RssBanDoc;
 }
-export interface Rss {
+export interface RssBanDoc {
+  $: any;
   channel: Array<RssChannel>;
 }
 export interface RssChannel {
@@ -12,20 +13,20 @@ export interface RssChannel {
   description: Array<string>;
   link: Array<string>;
   item: Array<RssItem>;
-
 }
 
 export interface RssItem {
-  guid: any;
+  guid: Array<string>;
   link: Array<string>;
   pubDate: Date;
   category: Array<string>;
   title: Array<string>;
   description: Array<string>;
-  // media:Content;
+  encoded:Attr;
+  content: Array<RssImage>;
 }
 export interface RssImage {
-  link: Array<string>;
-  title: Array<string>;
+  medium: string;
   url: Array<string>;
+  height:string;
 }

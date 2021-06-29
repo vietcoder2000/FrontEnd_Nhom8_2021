@@ -1,12 +1,12 @@
-.item{
-  width: 400px;
-  height: 400px;
-
+.item {
+    width: auto;
+    height: auto;
 }
-a{
-  width: auto;
-  color: white;
-  font-size: large;
-  background: #971927;
-  font-weight: bold;
+
+a {
+    width: auto;
+    color: white;
+    font-size: large;
+    background: #971927;
+    font-weight: bold;
 }

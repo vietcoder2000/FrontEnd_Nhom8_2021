@@ -1,6 +1,15 @@
 <div class="container">
     <div class="item">
         <a [routerLink]="['/chinh-tri']" routerLinkActive="$router_link-active$">Chính trị</a>
+        <h2>
+            {{RssDataChinhTri?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataChinhTri?.rss.channel[0].item">
+                <a [routerLink]="['/chinh-tri']" routerLinkActive="router-link-active">{{o.title}}</a>
+            </li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/thoi-su']" routerLinkActive="$router_link-active$">Thời sự</a>
@@ -25,37 +34,77 @@
     </div>
     <div class="item">
         <a [routerLink]="['/the-thao']" routerLinkActive="$router_link-active$">Thể thao</a>
+        <h2>
+            {{RssDataTheThao?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataTheThao?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
+
+
     </div>
     <div class="item">
         <a [routerLink]="['/cong-nghe']" routerLinkActive="$router_link-active$">Công nghệ</a>
+        <h2>
+            {{RssDataCongNghe?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataCongNghe?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/suc-khoe']" routerLinkActive="$router_link-active$">Sức khỏe</a>
+        <h2>
+            {{RssDataSucKhoe?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataSucKhoe?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/bat-dong-san']" routerLinkActive="$router_link-active$">Bất động sản</a>
+        <h2>
+            {{RssDataBatDongSan?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataBatDongSan?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/ban-doc']" routerLinkActive="$router_link-active$">Bạn đọc</a>
+        <h2>
+            {{RssDataBanDoc?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataBanDoc?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/tuan-vn']" routerLinkActive="$router_link-active$">Tuần Việt Nam</a>
+        <h2>
+            {{RssDataTuanVietNam?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataTuanVietNam?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/xe']" routerLinkActive="$router_link-active$">Xe</a>
+        <h2>
+            {{RssDataXe?.rss.channel[0].title[0]}}
+        </h2>
+        <ul>
+            <li *ngFor="let o of RssDataXe?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
+        </ul>
+
     </div>
     <div class="item">
         <a [routerLink]="['/video']" routerLinkActive="$router_link-active$">Video</a>
     </div>
 </div>
-<button (click)="GetRssFeedData()">
-  Get Rss Data
-  </button>
-
-<h2>
-    {{RssData?.rss.channel[0].title[0]}}
-</h2>
-Total Item: {{RssData?.rss.channel[0].item.length}}
-<ul>
-    <li *ngFor="let o of RssData?.rss.channel[0].item"><a href="{{o.link[0]}}">{{o.title[0]}}</a></li>
-</ul>
