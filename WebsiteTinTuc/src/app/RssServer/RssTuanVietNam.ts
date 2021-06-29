@@ -1,9 +1,9 @@
 
 
 export interface AppRss {
-  rss: RssChinhTri;
+  rss: RssTuanVietNam;
 }
-export interface RssChinhTri {
+export interface RssTuanVietNam {
   $: any;
   channel: Array<RssChannel>;
 }
@@ -16,7 +16,7 @@ export interface RssChannel {
 }
 
 export interface RssItem {
-  guid: any;
+  guid: Array<string>;
   link: Array<string>;
   pubDate: Date;
   category: Array<string>;
@@ -30,4 +30,3 @@ export interface RssImage {
   url: Array<string>;
   height:string;
 }
-
