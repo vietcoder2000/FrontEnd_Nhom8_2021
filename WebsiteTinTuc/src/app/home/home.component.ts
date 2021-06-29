@@ -245,17 +245,6 @@ export class HomeComponent implements OnInit {
     });
   }
   
-
-
-  GetRssFeedDataChinhTri() {
-    this.newrssservice.GetRssChinhTri().subscribe((data) => {
-      let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssChinhTri) => {
-        this.RssDataChinhTri = result;
-
-      });
-    });
-  }
   GetRssFeedDataDoiSong() {
     this.newrssservice.GetRssDoiSong().subscribe((data) => {
       let parseString = xml2js.parseString;
