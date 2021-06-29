@@ -1,6 +1,6 @@
 .item{
-  width: 400px;
-  height: 400px;
+  width: auto;
+  height: auto;
 
 }
 a{
@@ -9,4 +9,8 @@ a{
   font-size: large;
   background: #971927;
   font-weight: bold;
+}
+ul{
+  width: auto;
+  height: auto;
 }

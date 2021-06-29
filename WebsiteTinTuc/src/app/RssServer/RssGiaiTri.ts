@@ -1,9 +1,9 @@
 
 
 export interface AppRss {
-  rss: Rss;
+  rss: RssGiaiTri;
 }
-export interface Rss {
+export interface RssGiaiTri {
   channel: Array<RssChannel>;
 }
 export interface RssChannel {
