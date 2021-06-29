@@ -1,12 +1,19 @@
-.item {
-    width: auto;
-    height: auto;
+
+
+.item{
+  width: auto;
+  height: auto;
+
+}
+a{
+  width: auto;
+  color: white;
+  font-size: large;
+  background: #971927;
+  font-weight: bold;
+}
+ul{
+  width: auto;
+  height: auto;
 }
 
-a {
-    width: auto;
-    color: white;
-    font-size: large;
-    background: #971927;
-    font-weight: bold;
-}

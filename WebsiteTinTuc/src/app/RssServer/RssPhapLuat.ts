@@ -1,10 +1,9 @@
 
 
 export interface AppRss {
-  rss: RssChinhTri;
+  rss: RssPhapLuat;
 }
-export interface RssChinhTri {
-  $: any;
+export interface RssPhapLuat {
   channel: Array<RssChannel>;
 }
 export interface RssChannel {
@@ -13,6 +12,7 @@ export interface RssChannel {
   description: Array<string>;
   link: Array<string>;
   item: Array<RssItem>;
+
 }
 
 export interface RssItem {
@@ -22,12 +22,10 @@ export interface RssItem {
   category: Array<string>;
   title: Array<string>;
   description: Array<string>;
-  encoded:Attr;
-  content: Array<RssImage>;
+  // media:Content;
 }
 export interface RssImage {
-  medium: string;
+  link: Array<string>;
+  title: Array<string>;
   url: Array<string>;
-  height:string;
 }
-

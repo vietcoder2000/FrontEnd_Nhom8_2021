@@ -10,6 +10,83 @@ export class NewRssService {
 
   constructor(private http:HttpClient) {
    }
+  public GetRssDoiSong() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/doi-song.rss', requestOptions));
+
+  }
+  public GetRssGiaiTri() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/giai-tri.rss', requestOptions));
+
+  }
+  public GetRssGiaoDuc() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/giao-duc.rss', requestOptions));
+
+  }
+  public GetRssKinhDoanh() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/kinh-doanh.rss', requestOptions));
+
+  }
+  public GetRssPhapLuat() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/phap-luat.rss', requestOptions));
+
+  }
+  public GetRssTalks() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/talkshow.rss', requestOptions));
+
+  }
+  public GetRssTheGioi() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/the-gioi.rss', requestOptions));
+
+  }
+  public GetRssThoiSu() {
+    const requestOptions: Object = {
+      observe: "body",
+      responseType: "text"
+    };
+    return(this.http
+      .get('https://vietnamnet.vn/rss/thoi-su.rss', requestOptions));
+
+  }
+  
+  
+  
+  
+  
    public GetRssChinhTri() {
      const requestOptions: Object = {
        observe: "body",
