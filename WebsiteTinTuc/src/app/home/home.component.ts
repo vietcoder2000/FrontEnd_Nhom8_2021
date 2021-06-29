@@ -284,7 +284,9 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: RssBanDoc) => {
         this.RssDataBanDoc = result;
-
+ });
+    });
+  }
 
 
   GetRssFeedDataGiaoDuc() {
