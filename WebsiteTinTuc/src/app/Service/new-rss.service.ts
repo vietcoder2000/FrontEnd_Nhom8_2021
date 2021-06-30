@@ -93,7 +93,7 @@ export class NewRssService {
        responseType: "text"
      };
      return(this.http
-       .get<any>('https://vietnamnet.vn/rss/thoi-su-chinh-tri.rss', requestOptions));
+       .get('https://vietnamnet.vn/rss/thoi-su-chinh-tri.rss', requestOptions));
 
    }
    public GetRssXe() {
@@ -102,7 +102,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/oto-xe-may.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/oto-xe-may.rss', requestOptions));
 
   }public GetRssTuanVietNam() {
     const requestOptions: Object = {
@@ -110,7 +110,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/tuanvietnam.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/tuanvietnam.rss', requestOptions));
 
   }public GetRssTinMoiNong() {
     const requestOptions: Object = {
@@ -118,7 +118,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('https://vietnamnet.vn/rss/tin-moi-nong.rss', requestOptions));
+      .get('https://vietnamnet.vn/rss/tin-moi-nong.rss', requestOptions));
 
   }public GetRssTinMoiNhat() {
     const requestOptions: Object = {
@@ -126,7 +126,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/tin-moi-nhat.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/tin-moi-nhat.rss', requestOptions));
 
   }public GetRssTheThao() {
     const requestOptions: Object = {
@@ -134,7 +134,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/the-thao.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/the-thao.rss', requestOptions));
 
   }public GetRssSucKhoe() {
     const requestOptions: Object = {
@@ -142,7 +142,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/suc-khoe.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/suc-khoe.rss', requestOptions));
 
   }public GetRssGocNhinThang() {
     const requestOptions: Object = {
@@ -150,7 +150,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/goc-nhin-thang.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/goc-nhin-thang.rss', requestOptions));
 
   }public GetRssCongNghe() {
     const requestOptions: Object = {
@@ -158,7 +158,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/cong-nghe.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/cong-nghe.rss', requestOptions));
 
   }public GetRssBatDongSan() {
     const requestOptions: Object = {
@@ -166,7 +166,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/bat-dong-san.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/bat-dong-san.rss', requestOptions));
 
   }public GetRssBanDoc() {
     const requestOptions: Object = {
@@ -174,7 +174,7 @@ export class NewRssService {
       responseType: "text"
     };
     return(this.http
-      .get<any>('	https://vietnamnet.vn/rss/ban-doc.rss', requestOptions));
+      .get('	https://vietnamnet.vn/rss/ban-doc.rss', requestOptions));
 
   }
 
