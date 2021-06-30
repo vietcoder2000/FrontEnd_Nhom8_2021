@@ -16,13 +16,13 @@ export interface RssChannel {
 }
 
 export interface RssItem {
-  guid: any;
+  guid: Array<string>;
   link: Array<string>;
   pubDate: Date;
   category: Array<string>;
   title: Array<string>;
   description: Array<string>;
-  encoded:Attr;
+  encoded:Array<string>
   content: Array<RssImage>;
 }
 export interface RssImage {
@@ -30,4 +30,3 @@ export interface RssImage {
   url: Array<string>;
   height:string;
 }
-

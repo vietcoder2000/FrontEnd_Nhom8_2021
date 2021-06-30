@@ -22,7 +22,7 @@ export interface RssItem {
   category: Array<string>;
   title: Array<string>;
   description: Array<string>;
-  encoded:Attr;
+  encoded:Array<string>
   content: Array<RssImage>;
 }
 export interface RssImage {
