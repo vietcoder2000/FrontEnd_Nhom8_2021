@@ -78,7 +78,6 @@ export class HomeComponent implements OnInit {
   RssDataBatDongSan: RssBatDongSan|any;
   RssDataBanDoc: RssBanDoc|any;
   RssDataTinMoiNhat: RssTinMoiNhat|any;
-
   RssDataDoiSong: RssDoiSong | any;
   RssDataGiaiTri: RssGiaiTri | any;
   RssDataGiaoDuc: RssGiaoDuc | any;
@@ -99,7 +98,7 @@ export class HomeComponent implements OnInit {
     this.GetRssFeedDataTinMoiNong();
     this.GetRssFeedDataTuanVietNam();
     this.GetRssFeedDataCongNghe();
-   
+
     this.GetRssFeedDataDoiSong();
     this.GetRssFeedDataGiaiTri();
     this.GetRssFeedDataGiaoDuc();
@@ -109,31 +108,13 @@ export class HomeComponent implements OnInit {
     this.GetRssFeedDataTheGioi();
     this.GetRssFeedDataThoiSu();
   }
-  GetRssFeedDataChinhTri() {
-    this.newrssservice.GetRssChinhTri().subscribe((data) => {
-      var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
 
-
-      let parseString = xml2js.parseString;
-      parseString(data, options, (err, result: RssChinhTri) => {
-        this.RssDataChinhTri = result;
-
-
-
-      });
-    });
-  }
   GetRssFeedDataXe() {
     this.newrssservice.GetRssXe().subscribe((data) => {
       var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
-
-
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: RssXe) => {
         this.RssDataXe = result;
-
-
-
       });
     });
   }
@@ -244,7 +225,7 @@ export class HomeComponent implements OnInit {
      });
     });
   }
-  
+
 
 
   GetRssFeedDataChinhTri() {
