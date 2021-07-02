@@ -23,7 +23,7 @@ import {RssPhapLuat} from "../RssServer/RssPhapLuat";
 import {RssTalks} from "../RssServer/RssTalks";
 import {RssTheGioi} from "../RssServer/RssTheGioi";
 import {RssThoiSu} from "../RssServer/RssThoiSu";
-import {TheGioiComponent} from "../the-gioi/the-gioi.component";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -262,7 +262,7 @@ export class HomeComponent implements OnInit {
   GetRssFeedDataTheGioi() {
     this.newrssservice.GetRssTheGioi().subscribe((data) => {
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: TheGioiComponent) => {
+      parseString(data, (err, result: RssTheGioi) => {
         this.RssDataTheGioi = result;
       });
     });
