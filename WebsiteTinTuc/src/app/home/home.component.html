@@ -7,7 +7,6 @@
       {{ RssDataChinhTri?.rss.channel[0].title }}
     </h2>
     <ul>
-
       <li *ngFor="let o of RssDataChinhTri?.rss.channel[0].item">
         <a
           [routerLink]="['/chinh-tri']"
@@ -81,9 +80,10 @@
     <div class="item">
         <a [routerLink]="['/doi-song']" routerLinkActive="$router_link-active$">Đời sống</a
     >
-    </div>
-    <div class="item">
-        <a [routerLink]="['/phap-luat']" routerLinkActive="$router_link-active$">Pháp luật</a
+  </div>
+  <div class="item">
+    <a [routerLink]="['/phap-luat']" routerLinkActive="$router_link-active$"
+      >Pháp luật</a
     >
     <h2>
       {{ RssDataPhapLuat?.rss.channel[0].title }}
@@ -97,10 +97,10 @@
     <div class="item">
         <a [routerLink]="['/the-thao']" routerLinkActive="$router_link-active$">Thể thao</a
     >
-
-    </div>
-    <div class="item">
-        <a [routerLink]="['/cong-nghe']" routerLinkActive="$router_link-active$">Công nghệ</a
+  </div>
+  <div class="item">
+    <a [routerLink]="['/cong-nghe']" routerLinkActive="$router_link-active$"
+      >Công nghệ</a
     >
     <h2>
       {{ RssDataCongNghe?.rss.channel[0].title }}
