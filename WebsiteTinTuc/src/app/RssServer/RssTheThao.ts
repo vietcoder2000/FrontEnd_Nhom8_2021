@@ -16,7 +16,7 @@ export interface RssChannel {
 }
 
 export interface RssItem {
-  guid: Array<string>;
+  guid: any;
   link: Array<string>;
   pubDate: Date;
   category: Array<string>;
@@ -30,3 +30,5 @@ export interface RssImage {
   url: Array<string>;
   height:string;
 }
+
+
