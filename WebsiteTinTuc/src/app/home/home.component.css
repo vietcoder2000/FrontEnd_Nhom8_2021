@@ -1,6 +1,9 @@
 .item {
     width: auto;
     height: auto;
+    padding: 10px;
+    border-style: hidden hidden solid hidden;
+    margin: 10px;
 }
 
 a {
@@ -9,6 +12,46 @@ a {
     font-size: large;
     background: #971927;
     font-weight: bold;
+    padding: 5px;
+}
+
+ul {
+    width: auto;
+    height: auto;
+    list-style-type: none !important;
+}
+
+ul li a {
+    color: #5b5b5b;
+    background: white;
+    padding: 5px;
+}
+
+.grid-item {
+    display: grid;
+    grid-template-columns: 60% 30%;
+}
+
+.grid-item div img {
+    width: 650px;
+    height: 400px;
+}
+
+.grid-item div a {
+    padding: 10px;
+    font-size: 30px;
+    color: #5b5b5b;
+    background: white;
+    padding: 5px;
+}
+
+.grid-item div li {
+    padding-top: 10px;
+}
+
+.grid-item div li a {
+    font-size: 20px;
+    font-weight: normal;
 }
 
 ul {
