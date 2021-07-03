@@ -15,8 +15,9 @@ export class GiaiTriComponent implements OnInit {
   }
   GetRssFeedDataGiaiTri() {
     this.newrssservice.GetRssGiaiTri().subscribe((data) => {
+      var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssGiaiTri) => {
+      parseString(data, options,(err, result: RssGiaiTri) => {
         this.RssDataGiaiTri = result;
       });
     });

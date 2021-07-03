@@ -16,8 +16,9 @@ export class GiaoDucComponent implements OnInit {
   }
   GetRssFeedDataGiaoDuc() {
     this.newrssservice.GetRssGiaoDuc().subscribe((data) => {
+      var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssGiaoDuc) => {
+      parseString(data,options, (err, result: RssGiaoDuc) => {
         this.RssDataGiaoDuc = result;
       });
     });

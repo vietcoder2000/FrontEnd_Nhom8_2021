@@ -15,8 +15,9 @@ export class TheGioiComponent implements OnInit {
   }
   GetRssFeedDataTheGioi() {
     this.newrssservice.GetRssTheGioi().subscribe((data) => {
+      var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssTheGioi) => {
+      parseString(data, options,(err, result: RssTheGioi) => {
         this.RssDataTheGioi = result;
       });
     });

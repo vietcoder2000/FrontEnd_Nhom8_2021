@@ -16,8 +16,9 @@ export class KinhDoanhComponent implements OnInit {
   }
   GetRssFeedDataKinhDoanh() {
     this.newrssservice.GetRssKinhDoanh().subscribe((data) => {
+      var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssKinhDoanh) => {
+      parseString(data, options,(err, result: RssKinhDoanh) => {
         this.RssDataKinhDoanh = result;
       });
     });

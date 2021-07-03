@@ -31,7 +31,7 @@
             <div>
                 <ul>
                     <li *ngFor="let o of RssDataThoiSu?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" [routerLink]="['/chinh-tri']" routerLinkActive="router-link-active">{{o.title}}</a>
+                        <a *ngIf="i>0 && i<6" [routerLink]="['/thoi-su']" routerLinkActive="router-link-active">{{o.title}}</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
             <div>
                 <ul>
                     <li *ngFor="let o of RssDataKinhDoanh?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" [routerLink]="['/chinh-tri']" routerLinkActive="router-link-active">{{o.title}}</a>
+                        <a *ngIf="i>0 && i<6" [routerLink]="['/kinh-doanh']" routerLinkActive="router-link-active">{{o.title}}</a>
                     </li>
                 </ul>
             </div>

@@ -15,9 +15,9 @@ export class DoiSongComponent implements OnInit {
   ngOnInit(): void {    this.GetRssFeedDataDoiSong();
   }
   GetRssFeedDataDoiSong() {
-    this.newrssservice.GetRssDoiSong().subscribe((data) => {
+    this.newrssservice.GetRssDoiSong().subscribe((data) => { var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssDoiSong) => {
+      parseString(data, options,(err, result: RssDoiSong) => {
         this.RssDataDoiSong = result;
       });
     });

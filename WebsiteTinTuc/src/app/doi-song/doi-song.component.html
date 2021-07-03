@@ -2,8 +2,10 @@
     <h3>Đây là trang Đời sống</h3>
     <ul>
         <li *ngFor="let o of RssDataDoiSong?.rss.channel[0].item">
+            <img style="height: 25%; width: 25%;" src="{{o.content[0].url}}">
             <a [routerLink]="['/doi-song']" routerLinkActive="router-link-active">{{ o.title }}</a
 >
+            <p>{{o.description}}</p>
         </li>
     </ul>
 </div>

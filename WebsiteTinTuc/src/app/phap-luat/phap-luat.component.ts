@@ -15,8 +15,9 @@ export class PhapLuatComponent implements OnInit {
   }
   GetRssFeedDataPhapLuat() {
     this.newrssservice.GetRssPhapLuat().subscribe((data) => {
+      var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssPhapLuat) => {
+      parseString(data, options,(err, result: RssPhapLuat) => {
         this.RssDataPhapLuat = result;
       });
     });
