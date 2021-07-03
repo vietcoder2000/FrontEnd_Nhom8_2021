@@ -1,3 +1,9 @@
 <div class="container">
-  <h3>Đây là trang Thể Thao</h3>
+    <h3>Đây là trang Thể Thao</h3>
+    <ul>
+        <li *ngFor="let o of RssDataTheThao?.rss.channel[0].item">
+            <a [routerLink]="['/the-thao']" routerLinkActive="router-link-active">{{ o.title }}</a
+>
+        </li>
+    </ul>
 </div>

@@ -201,16 +201,18 @@ export class HomeComponent implements OnInit {
   }
   GetRssFeedDataDoiSong() {
     this.newrssservice.GetRssDoiSong().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssDoiSong) => {
+      parseString(data,options, (err, result: RssDoiSong) => {
         this.RssDataDoiSong = result;
       });
     });
   }
   GetRssFeedDataGiaiTri() {
     this.newrssservice.GetRssGiaiTri().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssGiaiTri) => {
+      parseString(data, options,(err, result: RssGiaiTri) => {
         this.RssDataGiaiTri = result;
       });
     });
@@ -229,48 +231,53 @@ export class HomeComponent implements OnInit {
 
   GetRssFeedDataGiaoDuc() {
     this.newrssservice.GetRssGiaoDuc().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssGiaoDuc) => {
+      parseString(data, options,(err, result: RssGiaoDuc) => {
         this.RssDataGiaoDuc = result;
       });
     });
   }
   GetRssFeedDataKinhDoanh() {
     this.newrssservice.GetRssKinhDoanh().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssKinhDoanh) => {
+      parseString(data, options,(err, result: RssKinhDoanh) => {
         this.RssDataKinhDoanh = result;
       });
     });
   }
   GetRssFeedDataPhapLuat() {
     this.newrssservice.GetRssPhapLuat().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssPhapLuat) => {
+      parseString(data,options, (err, result: RssPhapLuat) => {
         this.RssDataPhapLuat = result;
       });
     });
   }
   GetRssFeedDataTalks() {
     this.newrssservice.GetRssTalks().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssTalks) => {
+      parseString(data, options,(err, result: RssTalks) => {
         this.RssDataTalks = result;
       });
     });
   }
   GetRssFeedDataTheGioi() {
     this.newrssservice.GetRssTheGioi().subscribe((data) => {
+        var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssTheGioi) => {
+      parseString(data,options, (err, result: RssTheGioi) => {
         this.RssDataTheGioi = result;
       });
     });
   }
   GetRssFeedDataThoiSu() {
-    this.newrssservice.GetRssThoiSu().subscribe((data) => {
+    this.newrssservice.GetRssThoiSu().subscribe((data) => {  var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, (err, result: RssThoiSu) => {
+      parseString(data,options, (err, result: RssThoiSu) => {
         this.RssDataThoiSu = result;
       });
     });
