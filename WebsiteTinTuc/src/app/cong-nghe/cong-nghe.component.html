@@ -1,3 +1,11 @@
 <div class="container">
-  <h3>Đây là trang Công nghệ</h3>
+    <h3>Đây là trang Công nghệ</h3>
+    <ul>
+        <li *ngFor="let o of RssDataCongNghe?.rss.channel[0].item">
+            <img style="height: 25%; width: 25%;" src="{{o.content[0].url}}">
+            <a [routerLink]="['/cong-nghe']" routerLinkActive="router-link-active">{{ o.title }}</a
+>
+            <p>{{o.description}}</p>
+        </li>
+    </ul>
 </div>

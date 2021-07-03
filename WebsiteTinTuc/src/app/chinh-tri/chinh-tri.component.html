@@ -2,8 +2,11 @@
     <h3>Đây là trang Chính Trị</h3>
     <ul>
         <li *ngFor="let o of RssDataChinhTri?.rss.channel[0].item">
+
+            <img style="height: 25%; width: 25%;" src="{{o.content[0].url}}">
             <a [routerLink]="['/chinh-tri']" routerLinkActive="router-link-active">{{ o.title }}</a
         >
+        <p>{{o.description}}</p>
       </li>
     </ul>
 </div>
