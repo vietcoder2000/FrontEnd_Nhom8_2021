@@ -29,6 +29,22 @@ import { MoreComponent } from './more/more.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NewRssService } from './Service/new-rss.service';
+import { BanDocDetailComponent } from './ban-doc/ban-doc-detail/ban-doc-detail.component';
+import { BatDongSanDetailComponent } from './bat-dong-san/bat-dong-san-detail/bat-dong-san-detail.component';
+import { ChinhTriDetailComponent } from './chinh-tri/chinh-tri-detail/chinh-tri-detail.component';
+import { CongNgheDetailComponent } from './cong-nghe/cong-nghe-detail/cong-nghe-detail.component';
+import { DoiSongDetailComponent } from './doi-song/doi-song-detail/doi-song-detail.component';
+import { GiaiTriDetailComponent } from './giai-tri/giai-tri-detail/giai-tri-detail.component';
+import { GiaoDucDetailComponent } from './giao-duc/giao-duc-detail/giao-duc-detail.component';
+import { KinhDoanhDetailComponent } from './kinh-doanh/kinh-doanh-detail/kinh-doanh-detail.component';
+import { PhapLuatDetailComponent } from './phap-luat/phap-luat-detail/phap-luat-detail.component';
+import { SucKhoeDetailComponent } from './suc-khoe/suc-khoe-detail/suc-khoe-detail.component';
+import { TheGioiDetailComponent } from './the-gioi/the-gioi-detail/the-gioi-detail.component';
+import { TheThaoDetailComponent } from './the-thao/the-thao-detail/the-thao-detail.component';
+import { ThoiSuDetailComponent } from './thoi-su/thoi-su-detail/thoi-su-detail.component';
+import { TuanVnDetailComponent } from './tuan-vn/tuan-vn-detail/tuan-vn-detail.component';
+import { VideoDetailComponent } from './video/video-detail/video-detail.component';
+import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +70,23 @@ import { NewRssService } from './Service/new-rss.service';
 
     ContactComponent,
       IntroduceComponent,
-      MoreComponent
+      MoreComponent,
+      BanDocDetailComponent,
+      BatDongSanDetailComponent,
+      ChinhTriDetailComponent,
+      CongNgheDetailComponent,
+      DoiSongDetailComponent,
+      GiaiTriDetailComponent,
+      GiaoDucDetailComponent,
+      KinhDoanhDetailComponent,
+      PhapLuatDetailComponent,
+      SucKhoeDetailComponent,
+      TheGioiDetailComponent,
+      TheThaoDetailComponent,
+      ThoiSuDetailComponent,
+      TuanVnDetailComponent,
+      VideoDetailComponent,
+      XeDetailComponent
 
   ],
   imports: [

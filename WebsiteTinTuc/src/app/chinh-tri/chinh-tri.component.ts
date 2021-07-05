@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { RssChinhTri } from '../RssServer/RssChinhTri';
+import { Rss } from '../RssServer/Rss';
 import { NewRssService } from '../Service/new-rss.service';
 import * as xml2js from 'xml2js';
 @Component({
@@ -11,7 +11,7 @@ import * as xml2js from 'xml2js';
 export class ChinhTriComponent implements OnInit {
 
   constructor(private https:HttpClient,private newrssservice:NewRssService) { }
-  RssDataChinhTri: RssChinhTri|any;
+  RssDataChinhTri: Rss|any;
   ngOnInit(): void {
     this.GetRssFeedDataChinhTri();
   }
@@ -19,7 +19,7 @@ export class ChinhTriComponent implements OnInit {
     this.newrssservice.GetRssChinhTri().subscribe((data) => {
       var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, options, (err, result: RssChinhTri) => {
+      parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
       });
     });

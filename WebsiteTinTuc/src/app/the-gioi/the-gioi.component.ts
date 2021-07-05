@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RssTheGioi} from "../RssServer/RssTheGioi";import * as xml2js from 'xml2js';
+import {Rss} from "../RssServer/Rss";import * as xml2js from 'xml2js';
 import { HttpClient } from '@angular/common/http';
 import { NewRssService } from '../Service/new-rss.service';
 @Component({
@@ -8,7 +8,7 @@ import { NewRssService } from '../Service/new-rss.service';
   styleUrls: ['./the-gioi.component.css']
 })
 export class TheGioiComponent implements OnInit {
-  RssDataTheGioi: RssTheGioi | any;
+  RssDataTheGioi: Rss | any;
   constructor(private https:HttpClient,private newrssservice:NewRssService) { }
 
   ngOnInit(): void {this.GetRssFeedDataTheGioi();
@@ -17,7 +17,7 @@ export class TheGioiComponent implements OnInit {
     this.newrssservice.GetRssTheGioi().subscribe((data) => {
       var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data, options,(err, result: RssTheGioi) => {
+      parseString(data, options,(err, result: Rss) => {
         this.RssDataTheGioi = result;
       });
     });

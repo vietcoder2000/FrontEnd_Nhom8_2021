@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NewRssService } from '../Service/new-rss.service';
-import {RssGiaoDuc} from "../RssServer/RssGiaoDuc";
+import {Rss} from "../RssServer/Rss";
 import * as xml2js from 'xml2js';
 @Component({
   selector: 'app-giao-duc',
@@ -9,7 +9,7 @@ import * as xml2js from 'xml2js';
   styleUrls: ['./giao-duc.component.css']
 })
 export class GiaoDucComponent implements OnInit {
-  RssDataGiaoDuc: RssGiaoDuc | any;
+  RssDataGiaoDuc: Rss | any;
   constructor(private https:HttpClient,private newrssservice:NewRssService) { }
 
   ngOnInit(): void {this.GetRssFeedDataGiaoDuc();
@@ -18,7 +18,7 @@ export class GiaoDucComponent implements OnInit {
     this.newrssservice.GetRssGiaoDuc().subscribe((data) => {
       var options = { mergeAttrs:true,tagNameProcessors: [xml2js.processors.stripPrefix] };
       let parseString = xml2js.parseString;
-      parseString(data,options, (err, result: RssGiaoDuc) => {
+      parseString(data,options, (err, result: Rss) => {
         this.RssDataGiaoDuc = result;
       });
     });
