@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Rss} from "../RssServer/Rss";import * as xml2js from 'xml2js';
 import { HttpClient } from '@angular/common/http';
 import { NewRssService } from '../Service/new-rss.service';
+import {NewRssDetailService} from "../Service/new-rss-detail.service";
 @Component({
   selector: 'app-the-gioi',
   templateUrl: './the-gioi.component.html',
@@ -9,7 +10,7 @@ import { NewRssService } from '../Service/new-rss.service';
 })
 export class TheGioiComponent implements OnInit {
   RssDataTheGioi: Rss | any;
-  constructor(private https:HttpClient,private newrssservice:NewRssService) { }
+  constructor(private https:HttpClient,private newrssservice:NewRssService,private newrssservicedetail: NewRssDetailService) { }
 
   ngOnInit(): void {this.GetRssFeedDataTheGioi();
   }
@@ -21,5 +22,8 @@ export class TheGioiComponent implements OnInit {
         this.RssDataTheGioi = result;
       });
     });
+  }
+  getRssDetail(index: number) {
+    this.newrssservicedetail.index = index;
   }
 }
