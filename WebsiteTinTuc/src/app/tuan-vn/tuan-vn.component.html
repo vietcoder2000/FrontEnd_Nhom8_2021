@@ -1,9 +1,9 @@
 <div class="container">
     <h3>Đây là trang Tuần Việt Nam</h3>
     <ul>
-        <li *ngFor="let o of RssDataTuanVietNam?.rss.channel[0].item">
+        <li *ngFor="let o of RssDataTuanVietNam?.rss.channel[0].item let i = index ">
             <img style="height: 25%; width: 25%;" src="{{o.content[0].url}}">
-            <a [routerLink]="['/tuan-vn']" routerLinkActive="router-link-active">{{ o.title }}</a
+            <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a
 >
             <p>{{o.description}}</p>
         </li>
