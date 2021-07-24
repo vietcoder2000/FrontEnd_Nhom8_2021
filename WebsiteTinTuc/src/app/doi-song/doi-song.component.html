@@ -1,11 +1,40 @@
 <div class="container">
-    <h3>Đây là trang Đời sống</h3>
-    <ul>
-        <li *ngFor="let o of RssDataDoiSong?.rss.channel[0].item let i = index">
-            <img style="height: 25%; width: 25%;" src="{{o.content[0].url}}">
-            <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a
->
-            <p>{{o.description}}</p>
+  <h3>Đây là trang Chính Trị</h3>
+  <div class="grid-item">
+    <div class="grid-item-left">
+      <img height="80%" width="100%" src="{{RssDataDoiSong?.rss.channel[0].item[0].content[0].url}}"><br>
+      <a name="description" (click)="getRssDetail(0)" [routerLink]="['/doi-song-detail']" routerLinkActive="router-link-active">{{RssDataDoiSong?.rss.channel[0].item[0].title[0]}}</a>
+    </div>
+    <div>
+      <ul>
+        <li *ngFor="let o of RssDataDoiSong?.rss.channel[0].item let i = index ">
+          <div class="grid-item-column" *ngIf="i>0&&i<5">
+            <img style="height: 85%; width: 100%;" src="{{o.content[0].url}}">
+            <a  [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active" >{{ o.title }}</a
+            >
+
+          </div>
         </li>
-    </ul>
+      </ul>
+    </div>
+  </div>
+
+  <ul>
+    <li *ngFor="let o of RssDataDoiSong?.rss.channel[0].item let i = index ">
+      <div *ngIf="i>5">
+        <div class="list-item">
+          <div>
+            <img style="height: 180px; width: 90%;" src="{{o.content[0].url}}">
+          </div>
+          <div class="list-item-atext">
+            <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active" >{{ o.title }}</a
+            >
+            <p>{{o.description}}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
 </div>
+
