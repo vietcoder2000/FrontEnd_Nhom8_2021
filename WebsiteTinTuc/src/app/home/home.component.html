@@ -8,7 +8,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataChinhTri?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataChinhTri?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/chinh-tri-detail']" routerLinkActive="router-link-active">{{RssDataChinhTri?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -29,7 +29,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataThoiSu?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataThoiSu?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/thoi-su-detail']" routerLinkActive="router-link-active">{{RssDataThoiSu?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -49,7 +49,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataKinhDoanh?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataKinhDoanh?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/kinh-doanh-detail']" routerLinkActive="router-link-active">{{RssDataKinhDoanh?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -69,7 +69,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataGiaiTri?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataGiaiTri?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/giai-tri-detail']" routerLinkActive="router-link-active">{{RssDataGiaiTri?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -89,7 +89,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataTheGioi?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataTheGioi?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/the-gioi-detail']" routerLinkActive="router-link-active">{{RssDataTheGioi?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -109,7 +109,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataGiaoDuc?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataGiaoDuc?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/giao-duc-detail']" routerLinkActive="router-link-active">{{RssDataGiaoDuc?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -129,7 +129,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataDoiSong?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataDoiSong?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/doi-song-detail']" routerLinkActive="router-link-active">{{RssDataDoiSong?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -149,7 +149,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataPhapLuat?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataPhapLuat?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/phap-luat-detail']" routerLinkActive="router-link-active">{{RssDataPhapLuat?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -169,7 +169,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataTheThao?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataTheThao?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/the-thao-detail']" routerLinkActive="router-link-active">{{RssDataTheThao?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -189,7 +189,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataCongNghe?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataCongNghe?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/cong-nghe-detail']" routerLinkActive="router-link-active">{{RssDataCongNghe?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -209,7 +209,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataSucKhoe?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataSucKhoe?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/suc-khoe-detail']" routerLinkActive="router-link-active">{{RssDataSucKhoe?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -229,7 +229,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataBatDongSan?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataBatDongSan?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/bat-dong-san-detail']" routerLinkActive="router-link-active">{{RssDataBatDongSan?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -249,7 +249,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataBanDoc?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataBanDoc?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/ban-doc-detail']" routerLinkActive="router-link-active">{{RssDataBanDoc?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -269,7 +269,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataTuanVietNam?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataTuanVietNam?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/tuan-vn-detail']" routerLinkActive="router-link-active">{{RssDataTuanVietNam?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
@@ -289,7 +289,7 @@
         <div class="grid-item">
             <div>
                 <img src="{{RssDataXe?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description">{{RssDataXe?.rss.channel[0].item[0].title[0]}}</a>
+                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/xe-detail']" routerLinkActive="router-link-active">{{RssDataXe?.rss.channel[0].item[0].title[0]}}</a>
             </div>
             <div>
                 <ul>
