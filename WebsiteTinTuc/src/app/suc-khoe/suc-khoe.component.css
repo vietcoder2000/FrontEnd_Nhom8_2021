@@ -1,3 +1,64 @@
-ul{
-  list-style-type: none !important;
+
+.main-content-left ul {
+    list-style-type: none;
+}
+
+.main-content-left ul a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.main-content-left ul a:hover {
+    color: rgba(155, 27, 27, 0.9);
+    text-decoration: none;
+}
+
+.main-content-left ul p {
+    line-height: 25px;
+}
+
+
+/*  */
+
+.main-content-right table td {
+    padding-right: 10px;
+    text-align: left;
+    line-height: 16px;
+    padding: 10px 10px;
+}
+
+.main-content-right table td a {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+}
+
+.main-content-right table td a:hover {
+    color: rgba(223, 20, 20, 0.9);
+    text-decoration: none;
+}
+
+.main-content-right ul {
+    list-style-type: none;
+}
+
+.news-content {
+    margin-left: 20px;
+}
+
+.news-content table td {
+    padding: 15px 20px;
+}
+
+.description h3 a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.description h3 a:hover {
+    color: rgb(219, 25, 25);
+    text-decoration: none;
+}
+
+.texttop {
+    vertical-align: text-top;
 }

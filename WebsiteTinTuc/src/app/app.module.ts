@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { HomeComponent } from './home/home.component';
 import { ChinhTriComponent } from './chinh-tri/chinh-tri.component';
 import { ThoiSuComponent } from './thoi-su/thoi-su.component';
@@ -92,7 +92,7 @@ import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatDialogModule,HttpClientModule
+    BrowserAnimationsModule,MatDialogModule,HttpClientModule,MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
