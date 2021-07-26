@@ -8,10 +8,15 @@
 
 .content-left {
     background-color: rgb(219, 215, 215);
+    height: 100%;
+    margin-bottom: 10px;
+
 }
 
 .content-right {
     background-color: rgb(219, 215, 215);
+    height: 100%;
+    margin-bottom: 10px;
 }
 
 .labelform {
@@ -36,4 +41,9 @@ label {
 
 .listcontact li {
     padding: 1px;
+}
+.row2 img{
+  width: 150%;
+ margin: 70px;
+
 }

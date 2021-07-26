@@ -8,10 +8,14 @@
 
 .content-left {
   background-color: #dbd7d7;
+  height: 100%;
+  margin-bottom: 10px;
 }
 
 .content-right {
   background-color: #dbd7d7;
+  height: 100%;
+  margin-bottom: 10px;
 }
 
 .labelform {
@@ -36,5 +40,10 @@ label {
 
 .listcontact li {
   padding: 1px;
+}
+
+.row2 img {
+  width: 150%;
+  margin: 70px;
 }
 /*# sourceMappingURL=contact.component.css.map */

@@ -45,6 +45,7 @@ import { ThoiSuDetailComponent } from './thoi-su/thoi-su-detail/thoi-su-detail.c
 import { TuanVnDetailComponent } from './tuan-vn/tuan-vn-detail/tuan-vn-detail.component';
 import { VideoDetailComponent } from './video/video-detail/video-detail.component';
 import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +87,8 @@ import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
       ThoiSuDetailComponent,
       TuanVnDetailComponent,
       VideoDetailComponent,
-      XeDetailComponent
+      XeDetailComponent,
+      PageNotFoundComponent
 
   ],
   imports: [

@@ -1,7 +1,7 @@
 .megamenucontainer {
     padding: 20px 25px;
     width: 800px;
-    background-color: rgb(130, 160, 206);
+
 }
 
 .row1 {
@@ -27,12 +27,13 @@
 }
 
 .megamenucol a {
-    color: rgb(90, 88, 88);
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    border: 1px solid rgb(88, 207, 197);
-    border-radius: 5px;
-    padding: 5px;
-    background-color: rgb(88, 207, 197);
+    border: 1px solid rgb(163, 173, 173);
+    border-radius: 2px;
+    padding: 5px 15px;
+    background-color: rgb(163, 173, 173);
+    box-shadow: 4px 4px 4px rgb(226, 225, 225);;
 }
 
 .megamenucol a:hover {
