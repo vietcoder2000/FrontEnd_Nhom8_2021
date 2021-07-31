@@ -35,7 +35,14 @@ import { TuanVnDetailComponent } from './tuan-vn/tuan-vn-detail/tuan-vn-detail.c
 import { VideoDetailComponent } from './video/video-detail/video-detail.component';
 import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
 import { GiaoDucDetailComponent } from './giao-duc/giao-duc-detail/giao-duc-detail.component';
+import {DangKyComponent} from "./dang-ky/dang-ky.component";
+import {DangNhapComponent} from "./dang-nhap/dang-nhap.component";
+import {KhoiPhucMKComponent} from "./khoi-phuc-mk/khoi-phuc-mk.component";
+import {ThanhVienComponent} from "./thanh-vien/thanh-vien.component";
+
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -74,7 +81,14 @@ const routes: Routes = [
   { path: 'video-detail', component: VideoDetailComponent },
   { path: 'xe-detail', component: XeDetailComponent },
   { path: 'giao-duc-detail', component: GiaoDucDetailComponent },
+
+  {path:'dang-nhạp',component:DangNhapComponent},
+  {path: 'dang-ky',component: DangKyComponent},
+  {path: 'khoi-phuc',component:KhoiPhucMKComponent},
+  {path: 'thanh-vien',component:ThanhVienComponent}
+
   {path:'**',component:PageNotFoundComponent},
+
 ];
 
 @NgModule({
