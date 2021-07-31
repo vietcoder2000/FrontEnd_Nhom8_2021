@@ -1,0 +1,20 @@
+.icon404 img {
+ width: 70%;
+ padding-left: 100px;
+}
+h2{
+
+  color: rgba(0, 10, 151, 0.979);
+  font-weight: 550;
+  text-transform: uppercase;
+}
+h3{
+  font-weight: 550;
+}
+a{
+  background-color: rgba(0, 10, 151, 0.979);
+  border-radius:20px;
+  padding: 4px 15px;
+  color: rgb(255, 255, 255)  ;
+  text-decoration: none;
+}

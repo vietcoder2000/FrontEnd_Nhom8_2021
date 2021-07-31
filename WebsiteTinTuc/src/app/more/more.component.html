@@ -1,5 +1,32 @@
-<div class="megamenucontainer">
-    <div class=" row1">
+<div class="menu">
+
+  <table class="menutable">
+  <tr class="table-item">
+    <td class="table-item"><a>Góc nhìn thẳng</a></td>
+    <td class="table-item"><a>Hot Face</a></td>
+    <td class="table-item"><a>Bàn tròn trực tuyến</a></td>
+    <td class="table-item"><a>24h</a></td>
+  </tr>
+  <tr class="table-item">
+    <td class="table-item"><a>Multimedia</a></td>
+    <td class="table-item"><a>Video</a></td>
+    <td class="table-item"><a [routerLink]="['/introduce']" routerLinkActive="router-link-active" target="_blank" >Giới thiệu</a></td>
+    <td class="table-item"><a [routerLink]="['/contact']" routerLinkActive="router-link-active" target="_blank"><i class="fas fa-phone-alt"></i>Liên hệ</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><mat-dialog-actions align="end" class = "btn-cancel">
+      <button mat-button mat-dialog-close>Cancel</button>
+
+    </mat-dialog-actions></td>
+    <td></td>
+  </tr>
+  <tr></tr>
+</table>
+  <!-- <div class="menucontainer-item">
+    <div class=" row">
         <div class="megamenucol">
             <a href="" class="megamenugnt">Góc nhìn thẳng</a>
         </div>
@@ -11,6 +38,7 @@
         </div>
         <div class="megamenucol"><a href="" class="megamenugnt">24H</a></div>
     </div>
+    <hr>
     <div class=" row2">
         <div class="megamenucol">
             <a href="" class="megamenugnt">Multimedia</a>
@@ -25,5 +53,7 @@
             <a [routerLink]="['/contact']" routerLinkActive="router-link-active" class="megamenugnt" target="_blank"><i class="fas fa-phone-alt"></i>Liên hệ</a>
         </div>
     </div>
+  </div> -->
+
 
 </div>

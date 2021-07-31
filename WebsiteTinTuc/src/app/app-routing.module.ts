@@ -41,6 +41,9 @@ import {KhoiPhucMKComponent} from "./khoi-phuc-mk/khoi-phuc-mk.component";
 import {ThanhVienComponent} from "./thanh-vien/thanh-vien.component";
 
 
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
@@ -78,10 +81,14 @@ const routes: Routes = [
   { path: 'video-detail', component: VideoDetailComponent },
   { path: 'xe-detail', component: XeDetailComponent },
   { path: 'giao-duc-detail', component: GiaoDucDetailComponent },
+
   {path:'dang-nhạp',component:DangNhapComponent},
   {path: 'dang-ky',component: DangKyComponent},
   {path: 'khoi-phuc',component:KhoiPhucMKComponent},
   {path: 'thanh-vien',component:ThanhVienComponent}
+
+  {path:'**',component:PageNotFoundComponent},
+
 ];
 
 @NgModule({
