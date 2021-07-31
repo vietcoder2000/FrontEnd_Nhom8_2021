@@ -1,0 +1,61 @@
+header{
+  display: flex;
+  text-align: center;
+  background: #fa6b48;
+}
+header .text-thanhvien{
+  margin-left: 500px;
+  color: white;
+  font-size: 30px;
+}
+header .text-dangxuat{
+  margin-left: 350px;
+  color: white;
+}
+header img{
+  text-align: right;
+}
+.img-user{
+  margin-top: -100px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+.cac-muc{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin-top: -120px;
+  border-color: #8b8b8b;
+  border-style: solid;
+  padding: 15px 0 0 0;
+}
+.cac-muc .danh-muc{
+  display: flex;
+  border-color: #8b8b8b;
+  border-style: none solid none none;
+  padding: 0 0 0 10px;
+}
+.box-inf{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  margin-top: 50px;
+}
+.box-gioithieu{
+  border-style: solid;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.tb-gioithieu{
+  padding: 20px;
+}
+.tb-email{
+  padding: 10px 0 100px 20px;
+  border-style: solid none none none;
+}
+.tb-gd-tm{
+  padding: 10px 0 200px 20px;
+}
+.box-inf-right{
+  border-style: solid;
+}
+
+

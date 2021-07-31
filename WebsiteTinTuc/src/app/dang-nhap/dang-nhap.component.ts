@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-dang-nhap',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DangNhapComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
+
   }
+closeDialog(){
+    // this.dialogref.afterClosed();
+  console.log(1);
+}
 
 }

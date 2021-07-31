@@ -45,6 +45,11 @@ import { ThoiSuDetailComponent } from './thoi-su/thoi-su-detail/thoi-su-detail.c
 import { TuanVnDetailComponent } from './tuan-vn/tuan-vn-detail/tuan-vn-detail.component';
 import { VideoDetailComponent } from './video/video-detail/video-detail.component';
 import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
+import {DangKyComponent} from "./dang-ky/dang-ky.component";
+import {DangNhapComponent} from "./dang-nhap/dang-nhap.component";
+import { ThanhVienComponent } from './thanh-vien/thanh-vien.component';
+import { KhoiPhucMKComponent } from './khoi-phuc-mk/khoi-phuc-mk.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +91,11 @@ import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
       ThoiSuDetailComponent,
       TuanVnDetailComponent,
       VideoDetailComponent,
-      XeDetailComponent
+      XeDetailComponent,
+    DangNhapComponent,
+      DangKyComponent,
+      ThanhVienComponent,
+      KhoiPhucMKComponent,
 
   ],
   imports: [
