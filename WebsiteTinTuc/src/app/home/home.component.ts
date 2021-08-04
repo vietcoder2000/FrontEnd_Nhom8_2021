@@ -6,6 +6,7 @@ import { Rss } from '../RssServer/Rss';
 import { HttpClient } from '@angular/common/http';
 import * as xml2js from 'xml2js';
 import { NewRssDetailService } from '../Service/new-rss-detail.service';
+import { TestSearchService } from '../Service/search/test-search.service';
 
 @Component({
   selector: 'app-home',
@@ -50,9 +51,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private newrssservice: NewRssService,
     private http: HttpClient,
-    private newrssservicedetail: NewRssDetailService
+    private newrssservicedetail: NewRssDetailService,
+    private testsearchservice: TestSearchService
   ) {}
-
+  searchTerm='';
   RssDataChinhTri: Rss | any;
   RssDataXe: Rss | any;
   RssDataTuanVietNam: Rss | any;
@@ -64,7 +66,6 @@ export class HomeComponent implements OnInit {
   RssDataBatDongSan: Rss | any;
   RssDataBanDoc: Rss | any;
   RssDataTinMoiNhat: Rss | any;
-
   RssDataDoiSong: Rss | any;
   RssDataGiaiTri: Rss | any;
   RssDataGiaoDuc: Rss | any;
@@ -74,6 +75,7 @@ export class HomeComponent implements OnInit {
   RssDataTheGioi: Rss | any;
   RssDataThoiSu: Rss | any;
   ngOnInit(): void {
+
     this.GetRssFeedDataChinhTri();
     this.GetRssFeedDataXe();
     this.GetRssFeedDataSucKhoe();
@@ -103,6 +105,7 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
+        console.log(this.RssDataChinhTri);
       });
     });
   }
@@ -115,6 +118,7 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataXe = result;
+
       });
     });
   }
@@ -127,6 +131,7 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTuanVietNam = result;
+
       });
     });
   }
@@ -321,10 +326,15 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataThoiSu = result;
+
       });
     });
   }
   getRssDetail(index: number) {
     this.newrssservicedetail.index = index;
+  }
+  //test Search
+  getSearchText(){
+
   }
 }

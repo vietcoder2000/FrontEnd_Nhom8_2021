@@ -4,6 +4,7 @@ import { Rss } from '../RssServer/Rss';
 import { NewRssService } from '../Service/new-rss.service';
 import * as xml2js from 'xml2js';
 import {NewRssDetailService} from "../Service/new-rss-detail.service";
+import { TestSearchService } from '../Service/search/test-search.service';
 @Component({
   selector: 'app-chinh-tri',
   templateUrl: './chinh-tri.component.html',
@@ -11,10 +12,12 @@ import {NewRssDetailService} from "../Service/new-rss-detail.service";
 })
 export class ChinhTriComponent implements OnInit {
 
-  constructor(private https:HttpClient,private newrssservice:NewRssService,private newrssservicedetail: NewRssDetailService) { }
+  constructor(private https:HttpClient,private newrssservice:NewRssService,private newrssservicedetail: NewRssDetailService,private testsearchservice:TestSearchService) { }
   RssDataChinhTri: Rss|any;
   ngOnInit(): void {
+    
     this.GetRssFeedDataChinhTri();
+   
   }
   GetRssFeedDataChinhTri() {
     this.newrssservice.GetRssChinhTri().subscribe((data) => {
@@ -22,11 +25,18 @@ export class ChinhTriComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
+        console.log(this.RssDataChinhTri?.rss.channel[0]);
+  
+        
       });
     });
   }
 
   getRssDetail(index: number) {
     this.newrssservicedetail.index = index;
+   
+
   }
+ 
+  
 }

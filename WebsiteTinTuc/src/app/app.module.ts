@@ -53,6 +53,8 @@ import { KhoiPhucMKComponent } from './khoi-phuc-mk/khoi-phuc-mk.component';
 
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsModule } from '@angular/forms';
+import { ResultSearchComponent } from './result-search/result-search.component';
 
 @NgModule({
   declarations: [
@@ -102,14 +104,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       ThanhVienComponent,
       KhoiPhucMKComponent,
 
-      PageNotFoundComponent
+      PageNotFoundComponent,
+        ResultSearchComponent
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatDialogModule,HttpClientModule,MatGridListModule
+    BrowserAnimationsModule,MatDialogModule,HttpClientModule,MatGridListModule,FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
