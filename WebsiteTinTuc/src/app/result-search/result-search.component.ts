@@ -1,25 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Rss } from '../RssServer/Rss';
-import { NewRssService } from '../Service/new-rss.service';
-import * as xml2js from 'xml2js';
 import { NewRssDetailService } from '../Service/new-rss-detail.service';
+import { NewRssService } from '../Service/new-rss.service';
 import { TestSearchService } from '../Service/search/test-search.service';
+import * as xml2js from 'xml2js';
+import { Rss } from '../RssServer/Rss';
+
 @Component({
-  selector: 'app-chinh-tri',
-  templateUrl: './chinh-tri.component.html',
-  styleUrls: ['./chinh-tri.component.css'],
+  selector: 'app-result-search',
+  templateUrl: './result-search.component.html',
+  styleUrls: ['./result-search.component.css'],
 })
-export class ChinhTriComponent implements OnInit {
+export class ResultSearchComponent implements OnInit {
+  textSearch = '';
+  RssDataChinhTri: Rss | any;
+  results = [];
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
     private newrssservicedetail: NewRssDetailService,
     private testsearchservice: TestSearchService
   ) {}
-  RssDataChinhTri: Rss | any;
+
   ngOnInit(): void {
+    this.getTextSearch();
     this.GetRssFeedDataChinhTri();
+  }
+  getTextSearch() {
+    this.textSearch = this.testsearchservice.searchTerm.value;
   }
   GetRssFeedDataChinhTri() {
     this.newrssservice.GetRssChinhTri().subscribe((data) => {
@@ -30,11 +38,19 @@ export class ChinhTriComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
-        console.log(this.RssDataChinhTri?.rss.channel[0]);
+
+        // start search
+        this.RssDataChinhTri.rss.channel[0].item.forEach((rs: any) => {
+          if (rs.description[0].toLowerCase().indexOf(this.textSearch) != -1) {
+            // console.log(rs.description)
+            let r = rs.description;
+            this.results = Object.assign([], r);
+          }
+        });
+        console.log(this.results);
       });
     });
   }
-
   getRssDetail(index: number) {
     this.newrssservicedetail.index = index;
   }
