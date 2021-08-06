@@ -82,7 +82,6 @@ var HomeComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataChinhTri = result;
-                console.log(_this.RssDataChinhTri);
             });
         });
     };

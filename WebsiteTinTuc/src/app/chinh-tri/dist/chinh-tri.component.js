@@ -6,26 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.ResultSearchComponent = void 0;
+exports.ChinhTriComponent = void 0;
 var core_1 = require("@angular/core");
 var xml2js = require("xml2js");
-var ResultSearchComponent = /** @class */ (function () {
-    function ResultSearchComponent(https, newrssservice, newrssservicedetail, testsearchservice) {
+var ChinhTriComponent = /** @class */ (function () {
+    function ChinhTriComponent(https, newrssservice, newrssservicedetail, testsearchservice) {
         this.https = https;
         this.newrssservice = newrssservice;
         this.newrssservicedetail = newrssservicedetail;
         this.testsearchservice = testsearchservice;
-        this.textSearch = '';
-        this.results = [];
     }
-    ResultSearchComponent.prototype.ngOnInit = function () {
-        this.getTextSearch();
+    ChinhTriComponent.prototype.ngOnInit = function () {
         this.GetRssFeedDataChinhTri();
     };
-    ResultSearchComponent.prototype.getTextSearch = function () {
-        this.textSearch = this.testsearchservice.searchTerm.value;
-    };
-    ResultSearchComponent.prototype.GetRssFeedDataChinhTri = function () {
+    ChinhTriComponent.prototype.GetRssFeedDataChinhTri = function () {
         var _this = this;
         this.newrssservice.GetRssChinhTri().subscribe(function (data) {
             var options = {
@@ -34,29 +28,22 @@ var ResultSearchComponent = /** @class */ (function () {
             };
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
+                var _a;
                 _this.RssDataChinhTri = result;
-                // start search
-                _this.RssDataChinhTri.rss.channel[0].item.forEach(function (rs) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) != -1) {
-                        // console.log(rs.description)
-                        var r = rs.description;
-                        _this.results = Object.assign([], r);
-                    }
-                });
-                console.log(_this.results);
+                console.log((_a = _this.RssDataChinhTri) === null || _a === void 0 ? void 0 : _a.rss.channel[0]);
             });
         });
     };
-    ResultSearchComponent.prototype.getRssDetail = function (index) {
+    ChinhTriComponent.prototype.getRssDetail = function (index) {
         this.newrssservicedetail.index = index;
     };
-    ResultSearchComponent = __decorate([
+    ChinhTriComponent = __decorate([
         core_1.Component({
-            selector: 'app-result-search',
-            templateUrl: './result-search.component.html',
-            styleUrls: ['./result-search.component.css']
+            selector: 'app-chinh-tri',
+            templateUrl: './chinh-tri.component.html',
+            styleUrls: ['./chinh-tri.component.css']
         })
-    ], ResultSearchComponent);
-    return ResultSearchComponent;
+    ], ChinhTriComponent);
+    return ChinhTriComponent;
 }());
-exports.ResultSearchComponent = ResultSearchComponent;
+exports.ChinhTriComponent = ChinhTriComponent;

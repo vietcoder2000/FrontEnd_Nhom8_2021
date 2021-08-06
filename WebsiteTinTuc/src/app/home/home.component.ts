@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
-        console.log(this.RssDataChinhTri);
+
       });
     });
   }
