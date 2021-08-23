@@ -1,0 +1,31 @@
+
+.sliders {
+  display: flex;
+  position: relative;
+
+}
+.sliders .input-previous{
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+}
+.sliders .input-next{
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.sliders .slide{
+
+
+}
+.sliders .slide .second-item{
+background-color: red;
+display: none;}
+.sliders .slide.first{}

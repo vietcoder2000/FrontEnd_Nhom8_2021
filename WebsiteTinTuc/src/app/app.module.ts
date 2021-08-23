@@ -55,6 +55,8 @@ import { KhoiPhucMKComponent } from './khoi-phuc-mk/khoi-phuc-mk.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ResultSearchComponent } from './result-search/result-search.component';
+import { TinMoiNongComponent } from './tin-moi-nong/tin-moi-nong.component';
+import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +107,9 @@ import { ResultSearchComponent } from './result-search/result-search.component';
       KhoiPhucMKComponent,
 
       PageNotFoundComponent,
-        ResultSearchComponent
+        ResultSearchComponent,
+        TinMoiNongComponent,
+        TinMoiNongDetailComponent
 
 
   ],

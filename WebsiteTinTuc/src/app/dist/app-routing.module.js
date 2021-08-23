@@ -50,6 +50,7 @@ var khoi_phuc_mk_component_1 = require("./khoi-phuc-mk/khoi-phuc-mk.component");
 var thanh_vien_component_1 = require("./thanh-vien/thanh-vien.component");
 var page_not_found_component_1 = require("./page-not-found/page-not-found.component");
 var result_search_component_1 = require("./result-search/result-search.component");
+var tin_moi_nong_detail_component_1 = require("./tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component");
 var routes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: '', component: home_component_1.HomeComponent },
@@ -87,6 +88,7 @@ var routes = [
     { path: 'video-detail', component: video_detail_component_1.VideoDetailComponent },
     { path: 'xe-detail', component: xe_detail_component_1.XeDetailComponent },
     { path: 'giao-duc-detail', component: giao_duc_detail_component_1.GiaoDucDetailComponent },
+    { path: 'tin-moi-nong-detail', component: tin_moi_nong_detail_component_1.TinMoiNongDetailComponent },
     { path: 'dang-nhạp', component: dang_nhap_component_1.DangNhapComponent },
     { path: 'dang-ky', component: dang_ky_component_1.DangKyComponent },
     { path: 'khoi-phuc', component: khoi_phuc_mk_component_1.KhoiPhucMKComponent },
