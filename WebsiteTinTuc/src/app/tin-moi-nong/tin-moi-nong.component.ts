@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NewRssService } from '../Service/new-rss.service';
 import { Rss } from '../RssServer/Rss';import * as xml2js from 'xml2js';
@@ -26,7 +26,7 @@ export class TinMoiNongComponent implements OnInit {
 
         //       this.heading.push(g.substring(g.indexOf('<p')+3,g.indexOf('</p>')));
 
-
+console.log(this.RssDataTinMoiNong)
         // }
         // console.log(this.heading)
       });
@@ -35,5 +35,4 @@ export class TinMoiNongComponent implements OnInit {
   getRssDetail(index: number) {
     this.newrssservicedetail.index = index;
   }
-
 }

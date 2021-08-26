@@ -59,6 +59,10 @@ var thanh_vien_component_1 = require("./thanh-vien/thanh-vien.component");
 var khoi_phuc_mk_component_1 = require("./khoi-phuc-mk/khoi-phuc-mk.component");
 var page_not_found_component_1 = require("./page-not-found/page-not-found.component");
 var forms_1 = require("@angular/forms");
+var result_search_component_1 = require("./result-search/result-search.component");
+var tin_moi_nong_component_1 = require("./tin-moi-nong/tin-moi-nong.component");
+var tin_moi_nong_detail_component_1 = require("./tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component");
+var angular_responsive_carousel_1 = require("angular-responsive-carousel");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -108,12 +112,20 @@ var AppModule = /** @class */ (function () {
                 dang_ky_component_1.DangKyComponent,
                 thanh_vien_component_1.ThanhVienComponent,
                 khoi_phuc_mk_component_1.KhoiPhucMKComponent,
-                page_not_found_component_1.PageNotFoundComponent
+                page_not_found_component_1.PageNotFoundComponent,
+                result_search_component_1.ResultSearchComponent,
+                tin_moi_nong_component_1.TinMoiNongComponent,
+                tin_moi_nong_detail_component_1.TinMoiNongDetailComponent,
             ],
             imports: [
+                angular_responsive_carousel_1.IvyCarouselModule,
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
-                animations_1.BrowserAnimationsModule, dialog_1.MatDialogModule, http_1.HttpClientModule, grid_list_1.MatGridListModule, forms_1.FormsModule,
+                animations_1.BrowserAnimationsModule,
+                dialog_1.MatDialogModule,
+                http_1.HttpClientModule,
+                grid_list_1.MatGridListModule,
+                forms_1.FormsModule,
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

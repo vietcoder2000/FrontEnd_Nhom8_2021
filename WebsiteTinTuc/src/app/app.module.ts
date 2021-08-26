@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './home/home.component';
 import { ChinhTriComponent } from './chinh-tri/chinh-tri.component';
 import { ThoiSuComponent } from './thoi-su/thoi-su.component';
@@ -46,17 +46,17 @@ import { TuanVnDetailComponent } from './tuan-vn/tuan-vn-detail/tuan-vn-detail.c
 import { VideoDetailComponent } from './video/video-detail/video-detail.component';
 import { XeDetailComponent } from './xe/xe-detail/xe-detail.component';
 
-import {DangKyComponent} from "./dang-ky/dang-ky.component";
-import {DangNhapComponent} from "./dang-nhap/dang-nhap.component";
+import { DangKyComponent } from './dang-ky/dang-ky.component';
+import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 import { ThanhVienComponent } from './thanh-vien/thanh-vien.component';
 import { KhoiPhucMKComponent } from './khoi-phuc-mk/khoi-phuc-mk.component';
-
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ResultSearchComponent } from './result-search/result-search.component';
 import { TinMoiNongComponent } from './tin-moi-nong/tin-moi-nong.component';
 import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -82,43 +82,46 @@ import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/ti
     VideoComponent,
 
     ContactComponent,
-      IntroduceComponent,
-      MoreComponent,
-      BanDocDetailComponent,
-      BatDongSanDetailComponent,
-      ChinhTriDetailComponent,
-      CongNgheDetailComponent,
-      DoiSongDetailComponent,
-      GiaiTriDetailComponent,
-      GiaoDucDetailComponent,
-      KinhDoanhDetailComponent,
-      PhapLuatDetailComponent,
-      SucKhoeDetailComponent,
-      TheGioiDetailComponent,
-      TheThaoDetailComponent,
-      ThoiSuDetailComponent,
-      TuanVnDetailComponent,
-      VideoDetailComponent,
-      XeDetailComponent,
+    IntroduceComponent,
+    MoreComponent,
+    BanDocDetailComponent,
+    BatDongSanDetailComponent,
+    ChinhTriDetailComponent,
+    CongNgheDetailComponent,
+    DoiSongDetailComponent,
+    GiaiTriDetailComponent,
+    GiaoDucDetailComponent,
+    KinhDoanhDetailComponent,
+    PhapLuatDetailComponent,
+    SucKhoeDetailComponent,
+    TheGioiDetailComponent,
+    TheThaoDetailComponent,
+    ThoiSuDetailComponent,
+    TuanVnDetailComponent,
+    VideoDetailComponent,
+    XeDetailComponent,
 
     DangNhapComponent,
-      DangKyComponent,
-      ThanhVienComponent,
-      KhoiPhucMKComponent,
+    DangKyComponent,
+    ThanhVienComponent,
+    KhoiPhucMKComponent,
 
-      PageNotFoundComponent,
-        ResultSearchComponent,
-        TinMoiNongComponent,
-        TinMoiNongDetailComponent
-
-
+    PageNotFoundComponent,
+    ResultSearchComponent,
+    TinMoiNongComponent,
+    TinMoiNongDetailComponent,
   ],
   imports: [
+    IvyCarouselModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatDialogModule,HttpClientModule,MatGridListModule,FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    HttpClientModule,
+    MatGridListModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

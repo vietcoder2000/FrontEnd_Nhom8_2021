@@ -1,7 +1,4 @@
-
-
-
-    <!-- <ul *ngFor=" let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index ">
+<!-- <ul *ngFor=" let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index ">
       <li *ngIf="i == 0">
           <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
           <h3>
@@ -20,37 +17,46 @@
         <p>{{ o.description }}...</p>
     </li>
   </ul> -->
-<div class="slider">
-<div class="sliders">
+
+<!-- <div class="sliders">
   <button class="input-previous">  <i class="fas fa-chevron-left"></i></button>
-  <button class="input-next">  <i class="fas fa-chevron-right"></i></button>
+  <button   class="input-next">  <i class="fas fa-chevron-right"></i></button> -->
 
 <!-- first -->
-  <div class="slide first" *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index">
+<!-- <div class="slide first" *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index">
     <div class="first-item" *ngIf="i==0">
       <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
       <h3>
           <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
-      </h3>
-      <!-- <p>{{o.pubDate}}</p> -->
-      <p>{{ o.description }}...</p>
+      </h3> -->
+<!-- <p>{{o.pubDate}}</p> -->
+<!-- <p>{{ o.description }}...</p>
     </div>
-  </div>
-  <!-- second -->
-  <div class="slide" *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index">
+  </div> -->
+<!-- second -->
+<!-- <div class="slide" *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index">
 
     <div class="second-item" *ngIf="i>0">
       <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
       <h3>
           <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
-      </h3>
-      <!-- <p>{{o.pubDate}}</p> -->
-      <p>{{ o.description }}...</p>
+      </h3> -->
+<!-- <p>{{o.pubDate}}</p> -->
+<!-- <p>{{ o.description }}...</p>
     </div>
   </div>
-</div>
+</div> -->
 
 
+<carousel [autoplay]="true" [autoplayInterval]="5000" [transitionDuration]="700" [loop]="true" [cellsToShow]="1" [objectFit]="'cover'">
+    <div class="carousel-cell " *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index">
+        <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+        <h3>
+            <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+        </h3>
+        <p>{{o.pubDate}}</p>
+        <p>{{ o.description }}...</p>
 
-</div>
+    </div>
 
+</carousel>

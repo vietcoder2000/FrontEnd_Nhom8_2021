@@ -28,6 +28,7 @@ var TinMoiNongComponent = /** @class */ (function () {
                 // for (let i = 0; i < this.RssDataCongNghe?.rss.channel[0].item.length; i++) {
                 //   var g=this.RssDataCongNghe?.rss.channel[0].item[i].encoded.join('');
                 //       this.heading.push(g.substring(g.indexOf('<p')+3,g.indexOf('</p>')));
+                console.log(_this.RssDataTinMoiNong);
                 // }
                 // console.log(this.heading)
             });

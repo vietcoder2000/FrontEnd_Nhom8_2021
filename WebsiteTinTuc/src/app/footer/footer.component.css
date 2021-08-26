@@ -1,134 +1,144 @@
 .footer {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 .rowFooter1 {
-    display: inline-block;
-    background-color: rgb(91, 92, 92);
-    height: 175px;
+  display: inline-block;
+  background-color: rgb(91, 92, 92);
+  height: auto;
 }
 
 .rowFooter {
-    padding-left: 0px;
-    margin-bottom: 0px;
+  padding: 0px 0px;
+  margin-bottom: 0px;
+  list-style-type: none;
 }
 
 .titleFooter1 {
-    background-color: rgb(204, 207, 207);
-    height: 40px;
-    list-style-type: none;
+  padding: 5px;
+
+  list-style-type: none;
 }
 
 .titleFooter1 .itemTitle {
-    font-weight: bold;
-    padding: 10px 0px;
-    color: black;
+  font-weight: bold;
+  padding: 10px 0px;
+  font-size: 18px;
+
+
 }
 
 .titleFooter1 .itemTitle a {
-    color: black;
+  color: rgb(243, 235, 235);
 }
 
 .titleFooter1 .itemTitle:hover a {
-    color: rgb(216, 27, 27);
+  color: rgb(202, 57, 57);
 }
 
 .titleFooter1 .itemBody .item a {
-    color: rgb(214, 211, 211);
+  color: rgb(214, 211, 211);
 }
 
 .titleFooter1 .itemBody .item:hover a {
-    color: rgb(172, 148, 148);
+  color: rgb(223, 213, 213);
 }
 
 .titleFooter1 .item {
-    list-style-type: none;
-    padding: 5px 27px 5px 0px;
+  line-height: 2;
+
 }
 
 hr {
-    background-color: rgb(240, 234, 234);
-    margin: 0px;
+  border: 0.5px solid rgba(255, 255, 255, 0.767);
+
 }
 
+.row1,
 .row2 {
-    padding-top: 0px;
-    background-color: rgb(91, 92, 92);
+  padding-top: 0px;
+  background-color: rgb(91, 92, 92);
 }
 
 .imgLogo .logo img {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .textCoppyright .coppyright {
-    padding-top: 10px;
-    color: rgb(214, 211, 211);
-    font-weight: bold;
-    font-size: 12px;
+  padding-top: 10px;
+  color: rgb(214, 211, 211);
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .textCoppyright .note {
-    font-style: italic;
-    color: rgb(214, 211, 211);
-    font-size: 10px;
+  font-style: italic;
+  color: rgb(214, 211, 211);
+  font-size: 10px;
 }
 
 .textContact .text {
-    padding-top: 10px;
-    color: rgb(214, 211, 211);
-    margin-bottom: 0px;
+  padding-top: 10px;
+  color: rgb(214, 211, 211);
+  margin-bottom: 0px;
 }
 
 .textContact .textbot {
-    color: rgb(214, 211, 211);
-    text-transform: uppercase;
-    font-size: 13px;
+  color: rgb(214, 211, 211);
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 .textContact .iconFace i {
-    margin-left: 10px;
-    padding: 5px;
-    height: 32px;
-    width: 32px;
-    border-radius: 5px;
-    background-color: rgb(26, 16, 165);
-    color: rgb(198, 206, 206);
-    font-size: 20px;
-    border: 1px solid rgb(26, 16, 165);
+  margin-left: 10px;
+  padding: 5px;
+  height: 32px;
+  width: 32px;
+  border-radius: 5px;
+  background-color: rgb(26, 16, 165);
+  color: rgb(198, 206, 206);
+  font-size: 20px;
+  border: 1px solid rgb(26, 16, 165);
 }
 
 .textContact .iconTwitter i {
-    margin-left: 10px;
-    padding: 5px;
-    height: 32px;
-    width: 32px;
-    border-radius: 5px;
-    background-color: rgb(37, 129, 214);
-    color: rgb(198, 206, 206);
-    font-size: 20px;
-    border: 1px solid rgb(37, 129, 214);
+  margin-left: 10px;
+  padding: 5px;
+  height: 32px;
+  width: 32px;
+  border-radius: 5px;
+  background-color: rgb(37, 129, 214);
+  color: rgb(198, 206, 206);
+  font-size: 20px;
+  border: 1px solid rgb(37, 129, 214);
 }
 
 .textContact .iconYoutube i {
-    margin-left: 10px;
-    padding: 5px;
-    height: 32px;
-    width: 34px;
-    border-radius: 5px;
-    background-color: rgb(223, 0, 0);
-    color: rgb(198, 206, 206);
-    font-size: 20px;
-    border: 1px solid rgb(223, 0, 0);
+  margin-left: 10px;
+  padding: 5px;
+  height: 32px;
+  width: 34px;
+  border-radius: 5px;
+  background-color: rgb(223, 0, 0);
+  color: rgb(198, 206, 206);
+  font-size: 20px;
+  border: 1px solid rgb(223, 0, 0);
 }
 
 .textContact .iconIns i {
-    margin-left: 10px;
-    padding: 5px;
-    height: 32px;
-    width: 32px;
-    border-radius: 5px;
-    background-color: rgb(230, 9, 138);
-    color: rgb(198, 206, 206);
-    font-size: 20px;
-    border: 1px solid rgb(230, 9, 138);
+  margin-left: 10px;
+  padding: 5px;
+  height: 32px;
+  width: 32px;
+  border-radius: 5px;
+  background-color: rgb(230, 9, 138);
+  color: rgb(198, 206, 206);
+  font-size: 20px;
+  border: 1px solid rgb(230, 9, 138);
+}
+.textbot a{
+  color: rgb(214, 211, 211);
+}
+.text a{
+  color: rgb(37, 129, 214);
 }
