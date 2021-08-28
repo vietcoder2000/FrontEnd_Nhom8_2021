@@ -42,6 +42,7 @@ import { ThanhVienComponent } from './thanh-vien/thanh-vien.component';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResultSearchComponent } from './result-search/result-search.component';
+import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -80,7 +81,7 @@ const routes: Routes = [
   { path: 'video-detail', component: VideoDetailComponent },
   { path: 'xe-detail', component: XeDetailComponent },
   { path: 'giao-duc-detail', component: GiaoDucDetailComponent },
-
+{path:'tin-moi-nong-detail',component:TinMoiNongDetailComponent},
   { path: 'dang-nhạp', component: DangNhapComponent },
   { path: 'dang-ky', component: DangKyComponent },
   { path: 'khoi-phuc', component: KhoiPhucMKComponent },

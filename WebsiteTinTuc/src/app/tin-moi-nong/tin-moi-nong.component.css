@@ -1,0 +1,23 @@
+.carousel-content a {
+    text-decoration: none;
+}
+
+.carousel-content a .title {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.carousel-content a:hover .title {
+    color: #971927;
+}
+
+h3 {
+    color: #971927;
+    font-weight: bold;
+}
+
+.carousel-content a p {
+    color: rgb(0, 0, 0);
+    line-height: 1.4;
+}
