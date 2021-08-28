@@ -10,6 +10,7 @@ import { NewRssDetailService } from '../Service/new-rss-detail.service';
 })
 export class TinMoiNongComponent implements OnInit {
   RssDataTinMoiNong: Rss|any;
+  // images = [{path:''}]
   constructor(private https:HttpClient,private newrssservice:NewRssService,private newrssservicedetail:NewRssDetailService) { }
 
   ngOnInit(): void {this.GetRssFeedDataTinMoiNong();
@@ -26,7 +27,12 @@ export class TinMoiNongComponent implements OnInit {
 
         //       this.heading.push(g.substring(g.indexOf('<p')+3,g.indexOf('</p>')));
 
-console.log(this.RssDataTinMoiNong)
+
+// for (let index = 0; index < this.RssDataTinMoiNong.rss.channel[0].item.length; index++) {
+//   const element = this.RssDataTinMoiNong.rss.channel[0].item[index].content[0].url;
+// this.images.push({path:(element.join(''))})
+// }
+// console.log(this.images)
         // }
         // console.log(this.heading)
       });

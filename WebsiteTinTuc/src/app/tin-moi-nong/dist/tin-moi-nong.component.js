@@ -10,6 +10,7 @@ exports.TinMoiNongComponent = void 0;
 var core_1 = require("@angular/core");
 var xml2js = require("xml2js");
 var TinMoiNongComponent = /** @class */ (function () {
+    // images = [{path:''}]
     function TinMoiNongComponent(https, newrssservice, newrssservicedetail) {
         this.https = https;
         this.newrssservice = newrssservice;
@@ -28,7 +29,11 @@ var TinMoiNongComponent = /** @class */ (function () {
                 // for (let i = 0; i < this.RssDataCongNghe?.rss.channel[0].item.length; i++) {
                 //   var g=this.RssDataCongNghe?.rss.channel[0].item[i].encoded.join('');
                 //       this.heading.push(g.substring(g.indexOf('<p')+3,g.indexOf('</p>')));
-                console.log(_this.RssDataTinMoiNong);
+                // for (let index = 0; index < this.RssDataTinMoiNong.rss.channel[0].item.length; index++) {
+                //   const element = this.RssDataTinMoiNong.rss.channel[0].item[index].content[0].url;
+                // this.images.push({path:(element.join(''))})
+                // }
+                // console.log(this.images)
                 // }
                 // console.log(this.heading)
             });
