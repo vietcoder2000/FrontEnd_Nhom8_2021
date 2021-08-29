@@ -1,10 +1,10 @@
 <div class="container">
 
 
-  <h2>Bạn đã tìm kiếm từ khóa: {{textSearch}}</h2>
-  <div class="row">
+    <h2>Bạn đã tìm kiếm từ khóa: {{textSearch}}</h2>
+    <div class="row">
 
-
+        <!--
     <div class="grid-item">
 
       <div>
@@ -16,9 +16,47 @@
         </li>
       </ul>
       </div>
+    </div> -->
+
+
+        <!-- chính trị search -->
+        <table *ngFor="let o of RssDataChinhTri?.rss.channel[0].item; let i = index">
+            <tr class="row" *ngIf="o!=null">
+                <td class="col-lg-4 col-sm-4 col-xs-4">
+                    <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style=" width: 100%" src="{{ o.content[0].url }}" /></a>
+                </td>
+                <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+
+                    <div class="description">
+                        <h3><a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                    {{ o.title }}
+                  </a></h3>
+                        <p>{{o.description}}</p>
+                    </div>
+                </td>
+            </tr>
+
+
+        </table>
+
+        <!-- xe search -->
+        <table *ngFor="let o of RssDataXe?.rss.channel[0].item; let i = index">
+            <tr class="row" *ngIf="o!=null">
+                <td class="col-lg-4 col-sm-4 col-xs-4">
+                    <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style=" width: 100%" src="{{ o.content[0].url }}" /></a>
+                </td>
+                <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+
+                    <div class="description">
+                        <h3><a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                  {{ o.title }}
+                </a></h3>
+                        <p>{{o.description}}</p>
+                    </div>
+                </td>
+            </tr>
+
+
+        </table>
     </div>
-
-
-  </div>
 </div>
-
