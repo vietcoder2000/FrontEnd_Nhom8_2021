@@ -1,62 +1,348 @@
 <div class="container">
+    <h2>Bạn đã tìm kiếm từ khóa: "<b>{{ textSearch }}</b>"</h2>
 
+    <!-- chính trị search -->
+    <table *ngFor="let o of RssDataChinhTri?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
 
-    <h2>Bạn đã tìm kiếm từ khóa: {{textSearch}}</h2>
-    <div class="row">
+    <!-- xe search -->
+    <table *ngFor="let o of RssDataXe?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- tuan viet nam search -->
+    <table *ngFor="let o of RssDataTuanVietNam?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- tin moi nong search -->
+    <table *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- tin moi nhat search -->
+    <table *ngFor="let o of RssDataTinMoiNhat?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- the thao search -->
+    <table *ngFor="let o of RssDataTheThao?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- suc khoe search -->
+    <table *ngFor="let o of RssDataSucKhoe?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- goc nhin thang search -->
+    <table *ngFor="let o of RssDataGocNhinThang?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- cong nghe search -->
+    <table *ngFor="let o of RssDataCongNghe?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- bat dong san search -->
+    <table *ngFor="let o of RssDataBatDongSan?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- doi song search -->
+    <table *ngFor="let o of RssDataDoiSong?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!--giai tri search -->
+    <table *ngFor="let o of RssDataGiaiTri?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- ban doc search -->
+    <table *ngFor="let o of RssDataBanDoc?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- giao duc search -->
+    <table *ngFor="let o of RssDataGiaoDuc?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- kinh doanh search -->
+    <table *ngFor="let o of RssDataKinhDoanh?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- phap luat search -->
+    <table *ngFor="let o of RssDataPhapLuat?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- talks search -->
+    <table *ngFor="let o of RssDataTalks?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- the gioi search -->
+    <table *ngFor="let o of RssDataTheGioi?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- thoi su search -->
+    <table *ngFor="let o of RssDataThoiSu?.rss.channel[0].item; let i = index">
+        <tr class="row" *ngIf="o != null">
+            <td class="col-lg-4 col-sm-4 col-xs-4">
+                <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+            </td>
+            <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+                <div class="description">
+                    <h3>
+                        <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                {{ o.title }}
+              </a>
+                    </h3>
+                    <p>{{ o.description }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
 
-        <!--
-    <div class="grid-item">
-
-      <div>
-      <ul>
-          <li *ngFor="let o of results ">
-              <p >{{ o }}</p >
-
-
-        </li>
-      </ul>
-      </div>
-    </div> -->
-
-
-        <!-- chính trị search -->
-        <table *ngFor="let o of RssDataChinhTri?.rss.channel[0].item; let i = index">
-            <tr class="row" *ngIf="o!=null">
-                <td class="col-lg-4 col-sm-4 col-xs-4">
-                    <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style=" width: 100%" src="{{ o.content[0].url }}" /></a>
-                </td>
-                <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
-
-                    <div class="description">
-                        <h3><a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
-                    {{ o.title }}
-                  </a></h3>
-                        <p>{{o.description}}</p>
-                    </div>
-                </td>
-            </tr>
-
-
-        </table>
-
-        <!-- xe search -->
-        <table *ngFor="let o of RssDataXe?.rss.channel[0].item; let i = index">
-            <tr class="row" *ngIf="o!=null">
-                <td class="col-lg-4 col-sm-4 col-xs-4">
-                    <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style=" width: 100%" src="{{ o.content[0].url }}" /></a>
-                </td>
-                <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
-
-                    <div class="description">
-                        <h3><a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
-                  {{ o.title }}
-                </a></h3>
-                        <p>{{o.description}}</p>
-                    </div>
-                </td>
-            </tr>
-
-
-        </table>
-    </div>
 </div>

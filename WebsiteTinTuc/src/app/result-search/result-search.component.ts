@@ -33,6 +33,7 @@ export class ResultSearchComponent implements OnInit {
   RssDataTheGioi: Rss | any;
   RssDataThoiSu: Rss | any;
   results: string[] = [];
+
   constructor(
     private newrssservice: NewRssService,
     private newrssservicedetail: NewRssDetailService,
@@ -74,15 +75,7 @@ export class ResultSearchComponent implements OnInit {
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
 
-        this.RssDataChinhTri.rss.channel[0].item.forEach(
-          (rs: any, i: number) => {
-            if (
-              rs.description[0].toLowerCase().indexOf(this.textSearch) == -1
-            ) {
-              delete this.RssDataChinhTri.rss.channel[0].item[i];
-            }
-          }
-        );
+        this.filterValue(this.RssDataChinhTri);
       });
     });
   }
@@ -95,13 +88,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataXe = result;
-
-        this.RssDataXe.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataXe.rss.channel[0].item[i];
-
-          }
-        });
+        this.filterValue(this.RssDataXe);
       });
     });
   }
@@ -114,11 +101,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTuanVietNam = result;
-        this.RssDataTuanVietNam.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataTuanVietNam.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataTuanVietNam);
       });
     });
   }
@@ -131,11 +114,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTinMoiNong = result;
-        this.RssDataTinMoiNong.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataTinMoiNong.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataTinMoiNong);
       });
     });
   }
@@ -148,11 +127,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTinMoiNhat = result;
-        this.RssDataTinMoiNhat.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataTinMoiNhat.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataTinMoiNhat);
       });
     });
   }
@@ -165,11 +140,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTheThao = result;
-        this.RssDataTheThao.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataTheThao.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataTheThao);
       });
     });
   }
@@ -182,11 +153,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataSucKhoe = result;
-        this.RssDataSucKhoe.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataSucKhoe.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataSucKhoe);
       });
     });
   }
@@ -199,11 +166,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataGocNhinThang = result;
-        this.RssDataGocNhinThang.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataGocNhinThang.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataGocNhinThang);
       });
     });
   }
@@ -216,11 +179,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataCongNghe = result;
-        this.RssDataCongNghe.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataCongNghe.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataCongNghe);
       });
     });
   }
@@ -233,11 +192,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataBatDongSan = result;
-        this.RssDataBatDongSan.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataBatDongSan.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataBatDongSan);
       });
     });
   }
@@ -250,11 +205,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataDoiSong = result;
-        this.RssDataDoiSong.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataDoiSong.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataDoiSong);
       });
     });
   }
@@ -267,11 +218,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataGiaiTri = result;
-        this.RssDataGiaiTri.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataGiaiTri.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataGiaiTri);
       });
     });
   }
@@ -285,11 +232,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataBanDoc = result;
-        this.RssDataBanDoc.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataBanDoc.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataBanDoc);
       });
     });
   }
@@ -303,11 +246,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataGiaoDuc = result;
-        this.RssDataGiaoDuc.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataGiaoDuc.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataGiaoDuc);
       });
     });
   }
@@ -320,11 +259,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataKinhDoanh = result;
-        this.RssDataKinhDoanh.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataKinhDoanh.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataKinhDoanh);
       });
     });
   }
@@ -337,11 +272,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataPhapLuat = result;
-        this.RssDataPhapLuat.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataPhapLuat.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataPhapLuat);
       });
     });
   }
@@ -354,11 +285,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTalks = result;
-        this.RssDataTalks.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataTalks.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataTalks);
       });
     });
   }
@@ -371,11 +298,7 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTheGioi = result;
-        this.RssDataTheGioi.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataTheGioi.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataTheGioi);
       });
     });
   }
@@ -388,12 +311,15 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataThoiSu = result;
-        this.RssDataThoiSu.rss.channel[0].item.forEach((rs: any, i: number) => {
-          if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-            delete this.RssDataThoiSu.rss.channel[0].item[i];
-          }
-        });
+        this.filterValue(this.RssDataThoiSu);
       });
+    });
+  }
+  filterValue(RssOther: Rss | any) {
+    RssOther.rss.channel[0].item.forEach((rs: any, i: number) => {
+      if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
+        delete RssOther.rss.channel[0].item[i];
+      }
     });
   }
   getRssDetail(index: number) {

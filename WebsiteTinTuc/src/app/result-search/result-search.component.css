@@ -1,0 +1,12 @@
+img {
+    padding-bottom: 10px;
+}
+
+.description h3 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.description h3 a:hover {
+    color: rgb(173, 8, 8);
+}

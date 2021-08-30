@@ -52,11 +52,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataChinhTri = result;
-                _this.RssDataChinhTri.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataChinhTri.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataChinhTri);
             });
         });
     };
@@ -70,11 +66,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataXe = result;
-                _this.RssDataXe.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataXe.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataXe);
             });
         });
     };
@@ -88,11 +80,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTuanVietNam = result;
-                _this.RssDataTuanVietNam.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataTuanVietNam.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataTuanVietNam);
             });
         });
     };
@@ -106,11 +94,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTinMoiNong = result;
-                _this.RssDataTinMoiNong.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataTinMoiNong.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataTinMoiNong);
             });
         });
     };
@@ -124,11 +108,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTinMoiNhat = result;
-                _this.RssDataTinMoiNhat.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataTinMoiNhat.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataTinMoiNhat);
             });
         });
     };
@@ -142,11 +122,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTheThao = result;
-                _this.RssDataTheThao.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataTheThao.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataTheThao);
             });
         });
     };
@@ -160,11 +136,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataSucKhoe = result;
-                _this.RssDataSucKhoe.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataSucKhoe.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataSucKhoe);
             });
         });
     };
@@ -178,11 +150,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataGocNhinThang = result;
-                _this.RssDataGocNhinThang.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataGocNhinThang.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataGocNhinThang);
             });
         });
     };
@@ -196,11 +164,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataCongNghe = result;
-                _this.RssDataCongNghe.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataCongNghe.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataCongNghe);
             });
         });
     };
@@ -214,11 +178,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataBatDongSan = result;
-                _this.RssDataBatDongSan.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataBatDongSan.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataBatDongSan);
             });
         });
     };
@@ -232,11 +192,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataDoiSong = result;
-                _this.RssDataDoiSong.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataDoiSong.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataDoiSong);
             });
         });
     };
@@ -250,11 +206,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataGiaiTri = result;
-                _this.RssDataGiaiTri.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataGiaiTri.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataGiaiTri);
             });
         });
     };
@@ -268,11 +220,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataBanDoc = result;
-                _this.RssDataBanDoc.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataBanDoc.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataBanDoc);
             });
         });
     };
@@ -286,11 +234,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataGiaoDuc = result;
-                _this.RssDataGiaoDuc.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataGiaoDuc.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataGiaoDuc);
             });
         });
     };
@@ -304,11 +248,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataKinhDoanh = result;
-                _this.RssDataKinhDoanh.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataKinhDoanh.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataKinhDoanh);
             });
         });
     };
@@ -322,11 +262,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataPhapLuat = result;
-                _this.RssDataPhapLuat.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataPhapLuat.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataPhapLuat);
             });
         });
     };
@@ -340,11 +276,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTalks = result;
-                _this.RssDataTalks.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataTalks.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataTalks);
             });
         });
     };
@@ -358,11 +290,7 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTheGioi = result;
-                _this.RssDataTheGioi.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataTheGioi.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataTheGioi);
             });
         });
     };
@@ -376,12 +304,16 @@ var ResultSearchComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataThoiSu = result;
-                _this.RssDataThoiSu.rss.channel[0].item.forEach(function (rs, i) {
-                    if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                        delete _this.RssDataThoiSu.rss.channel[0].item[i];
-                    }
-                });
+                _this.filterValue(_this.RssDataThoiSu);
             });
+        });
+    };
+    ResultSearchComponent.prototype.filterValue = function (RssOther) {
+        var _this = this;
+        RssOther.rss.channel[0].item.forEach(function (rs, i) {
+            if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
+                delete RssOther.rss.channel[0].item[i];
+            }
         });
     };
     ResultSearchComponent.prototype.getRssDetail = function (index) {
