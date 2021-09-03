@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NewRssDetailService } from '../Service/new-rss-detail.service';
 import { NewRssService } from '../Service/new-rss.service';
@@ -12,6 +11,8 @@ import { Rss } from '../RssServer/Rss';
   styleUrls: ['./result-search.component.css'],
 })
 export class ResultSearchComponent implements OnInit {
+  p: number[] = [];
+
   textSearch = '';
   RssDataChinhTri: Rss | any;
   RssDataXe: Rss | any;
@@ -74,7 +75,6 @@ export class ResultSearchComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
-
         this.filterValue(this.RssDataChinhTri);
       });
     });
@@ -315,10 +315,11 @@ export class ResultSearchComponent implements OnInit {
       });
     });
   }
+
   filterValue(RssOther: Rss | any) {
     RssOther.rss.channel[0].item.forEach((rs: any, i: number) => {
       if (rs.description[0].toLowerCase().indexOf(this.textSearch) == -1) {
-        delete RssOther.rss.channel[0].item[i];
+        delete RssOther?.rss.channel[0].item[i];
       }
     });
   }

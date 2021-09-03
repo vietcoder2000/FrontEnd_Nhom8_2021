@@ -22,6 +22,7 @@
     "@angular/router": "~12.0.0",
     "@material/dialog": "^11.0.0",
     "angular-responsive-carousel": "^2.1.2",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "stream": "^0.0.2",
     "timers": "^0.1.1",

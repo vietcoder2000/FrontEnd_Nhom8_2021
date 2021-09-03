@@ -14,6 +14,7 @@ var ResultSearchComponent = /** @class */ (function () {
         this.newrssservice = newrssservice;
         this.newrssservicedetail = newrssservicedetail;
         this.testsearchservice = testsearchservice;
+        this.p = [];
         this.textSearch = '';
         this.results = [];
     }
@@ -312,7 +313,7 @@ var ResultSearchComponent = /** @class */ (function () {
         var _this = this;
         RssOther.rss.channel[0].item.forEach(function (rs, i) {
             if (rs.description[0].toLowerCase().indexOf(_this.textSearch) == -1) {
-                delete RssOther.rss.channel[0].item[i];
+                RssOther === null || RssOther === void 0 ? true : delete RssOther.rss.channel[0].item[i];
             }
         });
     };
