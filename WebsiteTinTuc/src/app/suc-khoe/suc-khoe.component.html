@@ -11,7 +11,7 @@
                             <h3>
                                 <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <!-- <p>{{o.pubDate}}</p> -->
+                          <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
                     </ul>
@@ -26,6 +26,7 @@
                             </td>
                             <td class="col-lg-7 col-sm-7 col-xs-7"> <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                           {{ o.title }}
+                              <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
                         </a></td>
                         </tr>
 
@@ -49,6 +50,7 @@
                                 <h3><a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                           {{ o.title }}
                         </a></h3>
+                              <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
                                 <p>{{o.description}}</p>
                             </div>
                         </td>

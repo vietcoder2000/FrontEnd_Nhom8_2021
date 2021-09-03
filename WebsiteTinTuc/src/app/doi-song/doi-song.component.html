@@ -4,15 +4,19 @@
     <div class="grid-item-left">
       <img height="80%" width="100%" src="{{RssDataDoiSong?.rss.channel[0].item[0].content[0].url}}"><br>
       <a name="description" (click)="getRssDetail(0)" [routerLink]="['/doi-song-detail']" routerLinkActive="router-link-active">{{RssDataDoiSong?.rss.channel[0].item[0].title[0]}}</a>
+      <p style="font-size: 10px">{{RssDataDoiSong?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
+      <p style="font-size: 20px">{{RssDataDoiSong?.rss.channel[0].item[0].description}}</p>
     </div>
     <div>
       <ul>
         <li *ngFor="let o of RssDataDoiSong?.rss.channel[0].item let i = index ">
           <div class="grid-item-column" *ngIf="i>0&&i<5">
             <img style="height: 85%; width: 100%;" src="{{o.content[0].url}}">
+            <div style="padding-left: 20px">
             <a  [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active" >{{ o.title }}</a
             >
-
+            <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+            </div>
           </div>
         </li>
       </ul>
@@ -29,6 +33,7 @@
           <div class="list-item-atext">
             <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active" >{{ o.title }}</a
             >
+            <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
             <p>{{o.description}}</p>
           </div>
         </div>

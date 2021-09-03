@@ -1,22 +1,22 @@
 <header>
   <h4>Đăng nhập</h4>
   <div>
-  <button class="title-button"><i class="fas fa-window-close"></i></button></div>
+  <button (click)="closeDialog()" class="title-button"><i class="fas fa-window-close"></i></button></div>
 </header>
 <div class="login_container">
     <div>
     <h3>ĐĂNG NHẬP TÀI KHOẢN</h3>
     <input type="text" placeholder="Tên đăng nhập">
     <input class="password_input" type="password" placeholder="Mật khẩu"><br>
-    <button class="login_button" heft="">ĐĂNG NHẬP</button>
+    <button class="login_button" [routerLink]="['/thanh-vien']" routerLinkActive="$router_link-active$" (click)="closeDialog()">ĐĂNG NHẬP</button>
     <p>Gửi lại mã xác nhận</p>
-    <p>Quên mật khẩu</p>
+    <p><a [routerLink]="['/khoi-phuc']" routerLinkActive="$router_link-active$" (click)="closeDialog()">Quên mật khẩu</a></p>
   </div>
   <div class="right">
     <h3>ĐĂNG NHẬP NHANH</h3>
     <button class="btn_face" >Facebook</button><br>
-    <button (click)="closeDialog()" class="btn_google"  >Google</button>
-    <p>Bạn chưa có tài khoản? <a [routerLink]="['/dang-ky']" routerLinkActive="$router_link-active$">Đăng ký</a> ngay</p>
+    <button  class="btn_google"  >Google</button>
+    <p>Bạn chưa có tài khoản? <a (click)="closeDialog()" [routerLink]="['/dang-ky']" routerLinkActive="$router_link-active$">Đăng ký</a> ngay</p>
 
   </div>
 </div>

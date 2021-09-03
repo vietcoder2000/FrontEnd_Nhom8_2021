@@ -1,15 +1,3 @@
-<!-- <div class="container">
-    <h3>Đây là trang Công nghệ</h3>
-    <ul>
-        <li *ngFor="let o of RssDataCongNghe?.rss.channel[0].item let i = index ">
-            <img style="height: 25%; width: 25%;" src="{{o.content[0].url}}">
-            <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a
->
-            <p>{{o.description}}</p>
-        </li>
-    </ul>
-</div> -->
-
 <div class="container">
     <div class="row">
         <div class="col-lg-9">
@@ -23,7 +11,7 @@
                             <h3>
                                 <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <!-- <p>{{o.pubDate}}</p> -->
+                          <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
                     </ul>
@@ -38,6 +26,7 @@
                             </td>
                             <td class="col-lg-7 col-sm-7 col-xs-7"> <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                               {{ o.title }}
+                              <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
                             </a></td>
                         </tr>
 
@@ -61,6 +50,7 @@
                                 <h3><a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                               {{ o.title }}
                             </a></h3>
+                              <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
                                 <p>{{o.description}}</p>
                             </div>
                         </td>

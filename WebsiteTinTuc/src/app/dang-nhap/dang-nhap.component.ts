@@ -8,15 +8,15 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 })
 export class DangNhapComponent implements OnInit {
 
-  constructor() {
+  constructor(public dialogRef: MatDialogRef<DangNhapComponent>) {
 
   }
 
   ngOnInit(): void {
 
   }
-closeDialog(){
-    // this.dialogref.afterClosed();
+  closeDialog(){
+    this.dialogRef.close();
   console.log(1);
 }
 

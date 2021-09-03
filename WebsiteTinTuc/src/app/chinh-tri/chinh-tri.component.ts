@@ -15,7 +15,8 @@ export class ChinhTriComponent implements OnInit {
     private https: HttpClient,
     private newrssservice: NewRssService,
     private newrssservicedetail: NewRssDetailService,
-    private testsearchservice: TestSearchService
+    private testsearchservice: TestSearchService,
+
   ) {}
   RssDataChinhTri: Rss | any;
   ngOnInit(): void {
@@ -38,4 +39,14 @@ export class ChinhTriComponent implements OnInit {
   getRssDetail(index: number) {
     this.newrssservicedetail.index = index;
   }
+  countHours(dateNews: Date){
+      var currentDate = new Date(Date.now());
+      var dateNew = new Date(dateNews.getFullYear(),dateNews.getMonth(),dateNews.getDate(),dateNews.getHours(),dateNews.getMinutes(),dateNews.getSeconds());
+      if(dateNew.getDate()==currentDate.getDate()&& dateNew.getMonth()==currentDate.getMonth() && dateNew.getFullYear()==currentDate.getFullYear()){
+        return currentDate.getHours()-dateNew.getHours();
+      }else{
+        return 0;
+      }
+  }
 }
+
