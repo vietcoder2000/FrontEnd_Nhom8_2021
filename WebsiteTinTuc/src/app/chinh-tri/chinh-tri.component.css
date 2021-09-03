@@ -5,6 +5,7 @@ ul{
   display: grid;
   grid-template-columns: 50% 40%;
   border-bottom: 5px dotted #afb0b0;
+  padding-bottom: 80px;
 }
 .grid-item-left a{
 font-size: 25px;
@@ -13,7 +14,7 @@ font-size: 25px;
 }
 .grid-item-column{
   display: grid;
-  grid-template-columns: 40% 40%;
+  grid-template-columns: 40% 50%;
 }
 .grid-item-column a{
 padding-left: 10px;
@@ -36,3 +37,9 @@ li{
   padding-bottom: 5px;
 }
 
+@media screen and (max-width: 1000px) {
+  .grid-item{
+    display: block;
+  }
+
+}
