@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+.carousel-main {
+    z-index: 0;
+}
+
 .carousel-content a .title {
     color: rgb(0, 0, 0);
     font-weight: bold;

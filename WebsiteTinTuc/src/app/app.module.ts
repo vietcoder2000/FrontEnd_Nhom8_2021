@@ -57,6 +57,7 @@ import { ResultSearchComponent } from './result-search/result-search.component';
 import { TinMoiNongComponent } from './tin-moi-nong/tin-moi-nong.component';
 import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     HttpClientModule,
     MatGridListModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

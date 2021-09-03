@@ -63,6 +63,7 @@ var result_search_component_1 = require("./result-search/result-search.component
 var tin_moi_nong_component_1 = require("./tin-moi-nong/tin-moi-nong.component");
 var tin_moi_nong_detail_component_1 = require("./tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component");
 var angular_responsive_carousel_1 = require("angular-responsive-carousel");
+var ngx_pagination_1 = require("ngx-pagination");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -126,6 +127,7 @@ var AppModule = /** @class */ (function () {
                 http_1.HttpClientModule,
                 grid_list_1.MatGridListModule,
                 forms_1.FormsModule,
+                ngx_pagination_1.NgxPaginationModule,
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
