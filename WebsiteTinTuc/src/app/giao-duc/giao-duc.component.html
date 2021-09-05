@@ -4,7 +4,8 @@
     <div class="grid-item-left">
       <img height="80%" width="100%" src="{{RssDataGiaoDuc?.rss.channel[0].item[0].content[0].url}}"><br>
       <a name="description" (click)="getRssDetail(0)" [routerLink]="['/giao-duc-detail']" routerLinkActive="router-link-active">{{RssDataGiaoDuc?.rss.channel[0].item[0].title[0]}}</a>
-      <p style="font-size: 10px">{{RssDataGiaoDuc?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
+      <p *ngIf="countHours(0)==0" style="font-size: 10px">{{RssDataGiaoDuc?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
+      <p  *ngIf="countHours(0)!=0" style="font-size: 10px">{{countHours(0)}}</p>
       <p style="font-size: 20px">{{RssDataGiaoDuc?.rss.channel[0].item[0].description}}</p>
     </div>
     <div>
@@ -15,11 +16,15 @@
             <div style="padding-left: 20px">
               <a  [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active" >{{ o.title }}</a
               >
-              <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p></div>
-
+              <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+              <p  *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
+            </div>
           </div>
         </li>
       </ul>
+    </div>
+    <div class="col-lg-3">
+      <app-tin-moi-nong></app-tin-moi-nong>
     </div>
   </div>
 
@@ -33,7 +38,8 @@
           <div class="list-item-atext">
             <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active" >{{ o.title }}</a
             >
-            <p style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+            <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+            <p  *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
             <p>{{o.description}}</p>
           </div>
         </div>

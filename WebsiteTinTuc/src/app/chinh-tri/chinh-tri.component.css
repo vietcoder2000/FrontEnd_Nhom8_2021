@@ -3,7 +3,7 @@ ul{
 }
 .grid-item {
   display: grid;
-  grid-template-columns: 50% 40%;
+  grid-template-columns: 50% 40% 90%;
   border-bottom: 5px dotted #afb0b0;
   padding-bottom: 80px;
 }
