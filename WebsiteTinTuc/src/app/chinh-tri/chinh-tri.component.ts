@@ -39,14 +39,18 @@ export class ChinhTriComponent implements OnInit {
   getRssDetail(index: number) {
     this.newrssservicedetail.index = index;
   }
-  countHours(dateNews: Date){
+  countHours(i:number){
+      var datenews = new Date(this.RssDataChinhTri?.rss.channel[0].item[i].pubDate);
       var currentDate = new Date(Date.now());
-      var dateNew = new Date(dateNews.getFullYear(),dateNews.getMonth(),dateNews.getDate(),dateNews.getHours(),dateNews.getMinutes(),dateNews.getSeconds());
-      if(dateNew.getDate()==currentDate.getDate()&& dateNew.getMonth()==currentDate.getMonth() && dateNew.getFullYear()==currentDate.getFullYear()){
-        return currentDate.getHours()-dateNew.getHours();
-      }else{
-        return 0;
+      if(datenews.getDate()==currentDate.getDate()&& datenews.getMonth()==currentDate.getMonth()&& datenews.getFullYear()==currentDate.getFullYear()){
+        if(datenews.getHours()!=currentDate.getHours())
+        return currentDate.getHours()-datenews.getHours()+" giờ trước";
+        else{
+          return currentDate.getMinutes()-datenews.getMonth()+" phút trước";
+        }
       }
+      return 0;
+
   }
 }
 
