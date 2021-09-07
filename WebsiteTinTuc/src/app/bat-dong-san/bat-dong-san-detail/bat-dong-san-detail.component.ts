@@ -12,6 +12,7 @@ import * as xml2js from 'xml2js';
 export class BatDongSanDetailComponent implements OnInit {
   RssDataBatDongSan: Rss | any;
   index = 0;
+  title: string = '';
   encoded: Array<string> | any;
   constructor(
     private https: HttpClient,
@@ -35,6 +36,10 @@ export class BatDongSanDetailComponent implements OnInit {
           this.RssDataBatDongSan.rss.channel[0].item[
             this.newrssservicedetail.index
           ].encoded;
+        this.title =
+          this.RssDataBatDongSan.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }

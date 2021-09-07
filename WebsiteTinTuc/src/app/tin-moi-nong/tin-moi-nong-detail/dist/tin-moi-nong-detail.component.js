@@ -15,6 +15,7 @@ var TinMoiNongDetailComponent = /** @class */ (function () {
         this.newrssservice = newrssservice;
         this.newrssservicedetail = newrssservicedetail;
         this.index = 0;
+        this.title = '';
     }
     TinMoiNongDetailComponent.prototype.ngOnInit = function () {
         this.GetRssFeedDataTinMoiNong();
@@ -31,6 +32,8 @@ var TinMoiNongDetailComponent = /** @class */ (function () {
                 _this.RssDataTinMoiNong = result;
                 _this.encoded =
                     _this.RssDataTinMoiNong.rss.channel[0].item[_this.newrssservicedetail.index].encoded;
+                _this.title =
+                    _this.RssDataTinMoiNong.rss.channel[0].item[_this.newrssservicedetail.index].title;
             });
         });
     };

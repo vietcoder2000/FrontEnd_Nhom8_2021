@@ -12,7 +12,7 @@ import * as xml2js from 'xml2js';
 export class TinMoiNongDetailComponent implements OnInit {
   RssDataTinMoiNong: Rss | any;
   index = 0;
-  encoded: Array<string> | any;
+  encoded: Array<string> | any;title: string = '';
   constructor(private https: HttpClient,
     private newrssservice: NewRssService,
     private newrssservicedetail: NewRssDetailService) { }
@@ -31,7 +31,10 @@ export class TinMoiNongDetailComponent implements OnInit {
         this.encoded =
           this.RssDataTinMoiNong.rss.channel[0].item[
             this.newrssservicedetail.index
-          ].encoded;
+          ].encoded;this.title =
+          this.RssDataTinMoiNong.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }

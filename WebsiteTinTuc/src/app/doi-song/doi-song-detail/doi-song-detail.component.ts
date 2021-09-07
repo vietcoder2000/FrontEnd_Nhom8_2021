@@ -12,7 +12,7 @@ import * as xml2js from 'xml2js';
 export class DoiSongDetailComponent implements OnInit {
   RssDataDoiSong: Rss | any;
   index = 0;
-  encoded: Array<string> | any;
+  encoded: Array<string> | any;title: string = '';
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
@@ -35,6 +35,10 @@ export class DoiSongDetailComponent implements OnInit {
           this.RssDataDoiSong.rss.channel[0].item[
             this.newrssservicedetail.index
           ].encoded;
+          this.title =
+          this.RssDataDoiSong.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }

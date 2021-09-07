@@ -12,7 +12,7 @@ import * as xml2js from 'xml2js';
 export class ThoiSuDetailComponent implements OnInit {
   RssDataThoiSu: Rss | any;
   index = 0;
-  encoded: Array<string> | any;
+  encoded: Array<string> | any;title: string = '';
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
@@ -34,7 +34,10 @@ export class ThoiSuDetailComponent implements OnInit {
         this.encoded =
           this.RssDataThoiSu.rss.channel[0].item[
             this.newrssservicedetail.index
-          ].encoded;
+          ].encoded; this.title =
+          this.RssDataThoiSu.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }
