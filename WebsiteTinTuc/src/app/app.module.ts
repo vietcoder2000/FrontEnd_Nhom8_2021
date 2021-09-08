@@ -58,7 +58,7 @@ import { TinMoiNongComponent } from './tin-moi-nong/tin-moi-nong.component';
 import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,7 +121,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     MatGridListModule,
     FormsModule,
-    NgxPaginationModule,
+    NgxPaginationModule, ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

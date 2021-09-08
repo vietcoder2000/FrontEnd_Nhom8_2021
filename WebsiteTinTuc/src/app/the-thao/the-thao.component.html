@@ -4,7 +4,7 @@
             <!-- main-content -->.
             <div class="row">
                 <!--  -->
-                <div class="col-lg-8 main-content-left">
+                <div class="col-lg-8 main-content-left" *ngIf="RssDataTheThao?.rss!=undefined">
                     <ul *ngFor=" let o of RssDataTheThao?.rss.channel[0].item;  let i = index ">
                         <li *ngIf="i == 0">
                             <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 <!--  -->
-                <div class="col-lg-4 main-content-right">
+                <div class="col-lg-4 main-content-right" *ngIf="RssDataTheThao?.rss!=undefined">
                     <table *ngFor="  let o of RssDataTheThao?.rss.channel[0].item;let i = index ">
                         <tr class="row" *ngIf="i > 0 && i < 6">
 
@@ -38,7 +38,7 @@
             <hr />
             <hr />
             <!-- news-content -->
-            <div class="row news-content">
+            <div class="row news-content" *ngIf="RssDataTheThao?.rss!=undefined">
 
                 <table *ngFor="let o of RssDataTheThao?.rss.channel[0].item; let i = index">
 

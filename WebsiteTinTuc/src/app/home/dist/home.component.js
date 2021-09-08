@@ -55,7 +55,6 @@ var HomeComponent = /** @class */ (function () {
         this.GetRssFeedDataChinhTri();
         this.GetRssFeedDataXe();
         this.GetRssFeedDataSucKhoe();
-        this.GetRssFeedDataTheThao();
         this.GetRssFeedDataBanDoc();
         this.GetRssFeedDataBatDongSan();
         this.GetRssFeedDataGocNhinThang();
@@ -71,6 +70,7 @@ var HomeComponent = /** @class */ (function () {
         this.GetRssFeedDataTalks();
         this.GetRssFeedDataTheGioi();
         this.GetRssFeedDataThoiSu();
+        this.GetRssFeedDataTheThao();
     };
     HomeComponent.prototype.GetRssFeedDataChinhTri = function () {
         var _this = this;
@@ -134,19 +134,6 @@ var HomeComponent = /** @class */ (function () {
             var parseString = xml2js.parseString;
             parseString(data, options, function (err, result) {
                 _this.RssDataTinMoiNhat = result;
-            });
-        });
-    };
-    HomeComponent.prototype.GetRssFeedDataTheThao = function () {
-        var _this = this;
-        this.newrssservice.GetRssTheThao().subscribe(function (data) {
-            var options = {
-                mergeAttrs: true,
-                tagNameProcessors: [xml2js.processors.stripPrefix]
-            };
-            var parseString = xml2js.parseString;
-            parseString(data, options, function (err, result) {
-                _this.RssDataTheThao = result;
             });
         });
     };
@@ -319,11 +306,308 @@ var HomeComponent = /** @class */ (function () {
             });
         });
     };
+    HomeComponent.prototype.GetRssFeedDataTheThao = function () {
+        var _this = this;
+        this.newrssservice.GetRssTheThao().subscribe(function (data) {
+            var options = {
+                mergeAttrs: true,
+                tagNameProcessors: [xml2js.processors.stripPrefix]
+            };
+            var parseString = xml2js.parseString;
+            parseString(data, options, function (err, result) {
+                _this.RssDataTheThao = result;
+            });
+        });
+    };
     HomeComponent.prototype.getRssDetail = function (index) {
         this.newrssservicedetail.index = index;
     };
     //test Search
-    HomeComponent.prototype.getSearchText = function () {
+    HomeComponent.prototype.getSearchText = function () { };
+    HomeComponent.prototype.countHoursChinhTri = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataChinhTri) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursThoisu = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataThoiSu) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursTinMoiNhat = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataTinMoiNhat) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursTalks = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataTalks) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursKinhDoanh = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataKinhDoanh) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursGiaiTri = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataGiaiTri) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursTheGioi = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataTheGioi) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursGiaoDuc = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataGiaoDuc) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursDoiSong = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataDoiSong) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursPhapLuat = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataPhapLuat) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursTinMoiNong = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataTinMoiNong) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursGocNhinThang = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataGocNhinThang) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursTheThao = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataTheThao) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursCongNghe = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataCongNghe) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursSucKhoe = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataSucKhoe) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursBatDongSan = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataBatDongSan) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursBanDoc = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataBanDoc) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursTuanVn = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataTuanVietNam) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
+    };
+    HomeComponent.prototype.countHoursXe = function (i) {
+        var _a;
+        var datenews = new Date((_a = this.RssDataXe) === null || _a === void 0 ? void 0 : _a.rss.channel[0].item[i].pubDate);
+        var currentDate = new Date(Date.now());
+        if (datenews.getDate() == currentDate.getDate() &&
+            datenews.getMonth() == currentDate.getMonth() &&
+            datenews.getFullYear() == currentDate.getFullYear()) {
+            if (datenews.getHours() != currentDate.getHours())
+                return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+            else {
+                return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+            }
+        }
+        return 0;
     };
     HomeComponent = __decorate([
         core_1.Component({
