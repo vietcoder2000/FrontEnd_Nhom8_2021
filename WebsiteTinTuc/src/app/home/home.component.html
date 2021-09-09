@@ -598,7 +598,7 @@
             </div>
             <!-- Tin Moi Nhat -->
             <div class="row">
-                <!--  -->
+
                 <h3 *ngIf="RssDataTinMoiNhat?.rss!=undefined" style="margin-left: 50px;">{{RssDataTinMoiNhat?.rss.channel[0].title}}</h3>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTinMoiNhat?.rss!=undefined">
 
@@ -614,7 +614,7 @@
                         </li>
                     </ul>
                 </div>
-                <!--  -->
+
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
 
                     <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTinMoiNhat?.rss!=undefined">
@@ -629,9 +629,11 @@
 
                 </div>
             </div>
+
         </div>
         <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
             <app-tin-moi-nong></app-tin-moi-nong>
         </div>
     </div>
+
 </div>

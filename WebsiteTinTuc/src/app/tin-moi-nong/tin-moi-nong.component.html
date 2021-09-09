@@ -51,7 +51,7 @@
     <hr style="color: #971927; border: 1px solid;">
 </h3>
 
-<carousel class="carousel-main" [objectFit]="'cover'" [arrowsOutside]="true" [cellsToShow]="1" [autoplayInterval]="5000" [transitionDuration]="700" [height]="500" [autoplay]="true" [loop]="true">
+<carousel class="carousel-main" [objectFit]="'cover'" [arrowsOutside]="true" [cellsToShow]="1" [autoplayInterval]="5000" [transitionDuration]="700" [height]="500" [autoplay]="true" [loop]="true" *ngIf="RssDataTinMoiNong?.rss!=undefined">
     <div class="carousel-cell " *ngFor="let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index">
 
         <div class="carousel-content">

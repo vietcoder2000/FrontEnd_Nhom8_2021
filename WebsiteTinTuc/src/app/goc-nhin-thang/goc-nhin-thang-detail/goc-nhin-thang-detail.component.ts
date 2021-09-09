@@ -5,12 +5,13 @@ import { NewRssDetailService } from 'src/app/Service/new-rss-detail.service';
 import { NewRssService } from 'src/app/Service/new-rss.service';
 import * as xml2js from 'xml2js';
 @Component({
-  selector: 'app-cong-nghe-detail',
-  templateUrl: './cong-nghe-detail.component.html',
-  styleUrls: ['./cong-nghe-detail.component.css'],
+  selector: 'app-goc-nhin-thang-detail',
+  templateUrl: './goc-nhin-thang-detail.component.html',
+  styleUrls: ['./goc-nhin-thang-detail.component.css']
 })
-export class CongNgheDetailComponent implements OnInit {
-  RssDataCongNghe: Rss | any;
+export class GocNhinThangDetailComponent implements OnInit {
+
+RssDataGocNhinThang: Rss | any;
   index = 0;
   encoded: Array<string> | any;
   title:string=''
@@ -19,31 +20,29 @@ export class CongNgheDetailComponent implements OnInit {
     private newrssservice: NewRssService,
     private newrssservicedetail: NewRssDetailService
   ) {}
- 
-  ngOnInit(): void {
-    this.GetRssFeedDataCongNghe();
+
+  ngOnInit(): void {this.GetRssFeedDataGocNhinThang();
   }
-  GetRssFeedDataCongNghe() {
-    this.newrssservice.GetRssCongNghe().subscribe((data) => {
+GetRssFeedDataGocNhinThang() {
+    this.newrssservice.GetRssGocNhinThang().subscribe((data) => {
       var options = {
         mergeAttrs: true,
         tagNameProcessors: [xml2js.processors.stripPrefix],
       };
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
-        this.RssDataCongNghe = result;
+        this.RssDataGocNhinThang = result;
         this.encoded =
-          this.RssDataCongNghe.rss.channel[0].item[
+          this.RssDataGocNhinThang.rss.channel[0].item[
             this.newrssservicedetail.index
           ].encoded;
 
 
           this.title =
-          this.RssDataCongNghe.rss.channel[0].item[
+          this.RssDataGocNhinThang.rss.channel[0].item[
             this.newrssservicedetail.index
           ].title;
       });
     });
   }
-
 }
