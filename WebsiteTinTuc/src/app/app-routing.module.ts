@@ -40,6 +40,13 @@ import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 import { KhoiPhucMKComponent } from './khoi-phuc-mk/khoi-phuc-mk.component';
 import { ThanhVienComponent } from './thanh-vien/thanh-vien.component';
 
+import { GocNhinThangComponent } from './goc-nhin-thang/goc-nhin-thang.component';
+import { TalksComponent } from './talks/talks.component';
+
+import { GocNhinThangDetailComponent } from './goc-nhin-thang/goc-nhin-thang-detail/goc-nhin-thang-detail.component';
+import { TalksDetailComponent } from './talks/talks-detail/talks-detail.component';
+
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResultSearchComponent } from './result-search/result-search.component';
 import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
@@ -59,6 +66,8 @@ const routes: Routes = [
   { path: 'the-gioi', component: TheGioiComponent },
   { path: 'the-thao', component: TheThaoComponent },
   { path: 'thoi-su', component: ThoiSuComponent },
+   { path: 'goc-nhin-thang', component: GocNhinThangComponent },
+    { path: 'talks', component: TalksComponent },
   { path: 'tuan-vn', component: TuanVnComponent },
   { path: 'video', component: VideoComponent },
   { path: 'xe', component: XeComponent },
@@ -80,8 +89,10 @@ const routes: Routes = [
   { path: 'tuan-vn-detail', component: TuanVnDetailComponent },
   { path: 'video-detail', component: VideoDetailComponent },
   { path: 'xe-detail', component: XeDetailComponent },
+   { path: 'goc-nhin-thang-detail', component: GocNhinThangDetailComponent },
+    { path: 'talks-detail', component: TalksDetailComponent },
   { path: 'giao-duc-detail', component: GiaoDucDetailComponent },
-{path:'tin-moi-nong-detail',component:TinMoiNongDetailComponent},
+  {path:'tin-moi-nong-detail',component:TinMoiNongDetailComponent},
   { path: 'dang-nhạp', component: DangNhapComponent },
   { path: 'dang-ky', component: DangKyComponent },
   { path: 'khoi-phuc', component: KhoiPhucMKComponent },

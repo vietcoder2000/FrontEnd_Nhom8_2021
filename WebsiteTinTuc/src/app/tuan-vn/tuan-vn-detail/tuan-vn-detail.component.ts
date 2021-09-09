@@ -12,7 +12,7 @@ import * as xml2js from 'xml2js';
 export class TuanVnDetailComponent implements OnInit {
   RssDataTuanVietNam: Rss | any;
   index = 0;
-  encoded: Array<string> | any;
+  encoded: Array<string> | any;title: string = '';
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
@@ -33,7 +33,10 @@ export class TuanVnDetailComponent implements OnInit {
         this.encoded =
           this.RssDataTuanVietNam.rss.channel[0].item[
             this.newrssservicedetail.index
-          ].encoded;
+          ].encoded; this.title =
+          this.RssDataTuanVietNam.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }

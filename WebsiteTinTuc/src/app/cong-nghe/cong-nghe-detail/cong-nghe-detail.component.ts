@@ -13,12 +13,13 @@ export class CongNgheDetailComponent implements OnInit {
   RssDataCongNghe: Rss | any;
   index = 0;
   encoded: Array<string> | any;
+  title:string=''
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
     private newrssservicedetail: NewRssDetailService
   ) {}
-
+ 
   ngOnInit(): void {
     this.GetRssFeedDataCongNghe();
   }
@@ -35,6 +36,12 @@ export class CongNgheDetailComponent implements OnInit {
           this.RssDataCongNghe.rss.channel[0].item[
             this.newrssservicedetail.index
           ].encoded;
+
+
+          this.title =
+          this.RssDataCongNghe.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }

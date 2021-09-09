@@ -3,10 +3,12 @@ import { NewRssService } from '../Service/new-rss.service';
 
 import { Rss } from '../RssServer/Rss';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import * as xml2js from 'xml2js';
 import { NewRssDetailService } from '../Service/new-rss-detail.service';
 import { TestSearchService } from '../Service/search/test-search.service';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -54,7 +56,7 @@ export class HomeComponent implements OnInit {
     private newrssservicedetail: NewRssDetailService,
     private testsearchservice: TestSearchService
   ) {}
-  searchTerm='';
+  searchTerm = '';
   RssDataChinhTri: Rss | any;
   RssDataXe: Rss | any;
   RssDataTuanVietNam: Rss | any;
@@ -75,11 +77,10 @@ export class HomeComponent implements OnInit {
   RssDataTheGioi: Rss | any;
   RssDataThoiSu: Rss | any;
   ngOnInit(): void {
-
     this.GetRssFeedDataChinhTri();
     this.GetRssFeedDataXe();
     this.GetRssFeedDataSucKhoe();
-    this.GetRssFeedDataTheThao();
+
     this.GetRssFeedDataBanDoc();
     this.GetRssFeedDataBatDongSan();
     this.GetRssFeedDataGocNhinThang();
@@ -95,6 +96,7 @@ export class HomeComponent implements OnInit {
     this.GetRssFeedDataTalks();
     this.GetRssFeedDataTheGioi();
     this.GetRssFeedDataThoiSu();
+    this.GetRssFeedDataTheThao();
   }
   GetRssFeedDataChinhTri() {
     this.newrssservice.GetRssChinhTri().subscribe((data) => {
@@ -105,7 +107,6 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataChinhTri = result;
-
       });
     });
   }
@@ -118,7 +119,6 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataXe = result;
-
       });
     });
   }
@@ -131,7 +131,6 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataTuanVietNam = result;
-
       });
     });
   }
@@ -159,18 +158,7 @@ export class HomeComponent implements OnInit {
       });
     });
   }
-  GetRssFeedDataTheThao() {
-    this.newrssservice.GetRssTheThao().subscribe((data) => {
-      var options = {
-        mergeAttrs: true,
-        tagNameProcessors: [xml2js.processors.stripPrefix],
-      };
-      let parseString = xml2js.parseString;
-      parseString(data, options, (err, result: Rss) => {
-        this.RssDataTheThao = result;
-      });
-    });
-  }
+
   GetRssFeedDataSucKhoe() {
     this.newrssservice.GetRssSucKhoe().subscribe((data) => {
       var options = {
@@ -326,7 +314,18 @@ export class HomeComponent implements OnInit {
       let parseString = xml2js.parseString;
       parseString(data, options, (err, result: Rss) => {
         this.RssDataThoiSu = result;
-
+      });
+    });
+  }
+  GetRssFeedDataTheThao() {
+    this.newrssservice.GetRssTheThao().subscribe((data) => {
+      var options = {
+        mergeAttrs: true,
+        tagNameProcessors: [xml2js.processors.stripPrefix],
+      };
+      let parseString = xml2js.parseString;
+      parseString(data, options, (err, result: Rss) => {
+        this.RssDataTheThao = result;
       });
     });
   }
@@ -334,189 +333,336 @@ export class HomeComponent implements OnInit {
     this.newrssservicedetail.index = index;
   }
   //test Search
-  getSearchText(){
-
-  }
-  countHoursChinhTri(i:number) {
-    var datenews = new Date(this.RssDataChinhTri?.rss.channel[0].item[i].pubDate);
+  getSearchText() {}
+  countHoursChinhTri(i: number) {
+    var datenews = new Date(
+      this.RssDataChinhTri?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursThoisu(i:number) {
+  countHoursThoisu(i: number) {
     var datenews = new Date(this.RssDataThoiSu?.rss.channel[0].item[i].pubDate);
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursKinhDoanh(i:number) {
-    var datenews = new Date(this.RssDataKinhDoanh?.rss.channel[0].item[i].pubDate);
+  countHoursTinMoiNhat(i: number) {
+    var datenews = new Date(this.RssDataTinMoiNhat?.rss.channel[0].item[i].pubDate);
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
-  }
-  countHoursGiaiTri(i:number) {
-    var datenews = new Date(this.RssDataGiaiTri?.rss.channel[0].item[i].pubDate);
+  } countHoursTalks(i: number) {
+    var datenews = new Date(this.RssDataTalks?.rss.channel[0].item[i].pubDate);
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursTheGioi(i:number) {
-    var datenews = new Date(this.RssDataTheGioi?.rss.channel[0].item[i].pubDate);
+  countHoursKinhDoanh(i: number) {
+    var datenews = new Date(
+      this.RssDataKinhDoanh?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursGiaoDuc(i:number) {
-    var datenews = new Date(this.RssDataGiaoDuc?.rss.channel[0].item[i].pubDate);
+  countHoursGiaiTri(i: number) {
+    var datenews = new Date(
+      this.RssDataGiaiTri?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursDoiSong(i:number) {
-    var datenews = new Date(this.RssDataDoiSong?.rss.channel[0].item[i].pubDate);
+  countHoursTheGioi(i: number) {
+    var datenews = new Date(
+      this.RssDataTheGioi?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursPhapLuat(i:number) {
-    var datenews = new Date(this.RssDataPhapLuat?.rss.channel[0].item[i].pubDate);
+  countHoursGiaoDuc(i: number) {
+    var datenews = new Date(
+      this.RssDataGiaoDuc?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursTheThao(i:number) {
-    var datenews = new Date(this.RssDataTheThao?.rss.channel[0].item[i].pubDate);
+  countHoursDoiSong(i: number) {
+    var datenews = new Date(
+      this.RssDataDoiSong?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursCongNghe(i:number) {
-    var datenews = new Date(this.RssDataCongNghe?.rss.channel[0].item[i].pubDate);
+  countHoursPhapLuat(i: number) {
+    var datenews = new Date(
+      this.RssDataPhapLuat?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
-  }
-  countHoursSucKhoe(i:number) {
-    var datenews = new Date(this.RssDataSucKhoe?.rss.channel[0].item[i].pubDate);
+  } countHoursTinMoiNong(i: number) {
+    var datenews = new Date(
+      this.RssDataTinMoiNong?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
-  }
-  countHoursBatDongSan(i:number) {
-    var datenews = new Date(this.RssDataBatDongSan?.rss.channel[0].item[i].pubDate);
+
+  } countHoursGocNhinThang(i: number) {
+    var datenews = new Date(
+      this.RssDataGocNhinThang?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+      }
+    }
+    return 0;
+
+  }
+  countHoursTheThao(i: number) {
+    var datenews = new Date(
+      this.RssDataTheThao?.rss.channel[0].item[i].pubDate
+    );
+    var currentDate = new Date(Date.now());
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
+      if (datenews.getHours() != currentDate.getHours())
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+      else {
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursBanDoc(i:number) {
+  countHoursCongNghe(i: number) {
+    var datenews = new Date(
+      this.RssDataCongNghe?.rss.channel[0].item[i].pubDate
+    );
+    var currentDate = new Date(Date.now());
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
+      if (datenews.getHours() != currentDate.getHours())
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+      else {
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+      }
+    }
+    return 0;
+  }
+  countHoursSucKhoe(i: number) {
+    var datenews = new Date(
+      this.RssDataSucKhoe?.rss.channel[0].item[i].pubDate
+    );
+    var currentDate = new Date(Date.now());
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
+      if (datenews.getHours() != currentDate.getHours())
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+      else {
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+      }
+    }
+    return 0;
+  }
+  countHoursBatDongSan(i: number) {
+    var datenews = new Date(
+      this.RssDataBatDongSan?.rss.channel[0].item[i].pubDate
+    );
+    var currentDate = new Date(Date.now());
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
+      if (datenews.getHours() != currentDate.getHours())
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
+      else {
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
+      }
+    }
+    return 0;
+  }
+  countHoursBanDoc(i: number) {
     var datenews = new Date(this.RssDataBanDoc?.rss.channel[0].item[i].pubDate);
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursTuanVn(i:number) {
-    var datenews = new Date(this.RssDataTuanVietNam?.rss.channel[0].item[i].pubDate);
+  countHoursTuanVn(i: number) {
+    var datenews = new Date(
+      this.RssDataTuanVietNam?.rss.channel[0].item[i].pubDate
+    );
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-  countHoursXe(i:number) {
+  countHoursXe(i: number) {
     var datenews = new Date(this.RssDataXe?.rss.channel[0].item[i].pubDate);
     var currentDate = new Date(Date.now());
-    if (datenews.getDate() == currentDate.getDate() && datenews.getMonth() == currentDate.getMonth() && datenews.getFullYear() == currentDate.getFullYear()) {
+    if (
+      datenews.getDate() == currentDate.getDate() &&
+      datenews.getMonth() == currentDate.getMonth() &&
+      datenews.getFullYear() == currentDate.getFullYear()
+    ) {
       if (datenews.getHours() != currentDate.getHours())
-        return currentDate.getHours() - datenews.getHours() + " giờ trước";
+        return currentDate.getHours() - datenews.getHours() + ' giờ trước';
       else {
-        return currentDate.getMinutes() - datenews.getMonth() + " phút trước";
+        return currentDate.getMinutes() - datenews.getMonth() + ' phút trước';
       }
     }
     return 0;
   }
-
-
 }

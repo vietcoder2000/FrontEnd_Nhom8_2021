@@ -12,7 +12,7 @@ import * as xml2js from 'xml2js';
 export class GiaoDucDetailComponent implements OnInit {
   RssDataGiaoDuc: Rss | any;
   index = 0;
-  encoded: Array<string> | any;
+  encoded: Array<string> | any;title: string = '';
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
@@ -34,7 +34,10 @@ export class GiaoDucDetailComponent implements OnInit {
         this.encoded =
           this.RssDataGiaoDuc.rss.channel[0].item[
             this.newrssservicedetail.index
-          ].encoded;
+          ].encoded;  this.title =
+          this.RssDataGiaoDuc.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }

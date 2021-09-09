@@ -1,416 +1,639 @@
 <div class="container">
-{{searchTerm}}
-    <!-- Chính trị -->
-    <div class="item">
-        <a [routerLink]="['/chinh-tri']" routerLinkActive="$router_link-active$">Chính trị</a>
-        <h2>
-            {{RssDataChinhTri?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataChinhTri?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/chinh-tri-detail']" routerLinkActive="router-link-active">{{RssDataChinhTri?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursChinhTri(0)==0" style="font-size: 10px">{{RssDataChinhTri?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursChinhTri(0)!=0" style="font-size: 10px">{{countHoursChinhTri(0)}}</p>
-              <p style="font-size: 20px">{{RssDataChinhTri?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataChinhTri?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/chinh-tri-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{RssDataChinhTri?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursChinhTri(i)!=0" style="font-size: 10px">{{countHoursChinhTri(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
+    <div class="row">
+        <div class="col-lg-9 col-xs-9 col-sm-9 col-md-9">
+            <!-- cong nghe -->.
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataCongNghe?.rss!=undefined" style="margin-left: 50px;">{{RssDataCongNghe?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataCongNghe?.rss!=undefined">
 
-            </div>
+                    <ul *ngFor=" let o of RssDataCongNghe?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursCongNghe(i)!=0" style="font-size: 10px">{{countHoursCongNghe(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
 
-        </div>
-    </div>
-    <!-- Thời sự -->
-    <div class="item">
-        <a [routerLink]="['/thoi-su']" routerLinkActive="$router_link-active$">Thời sự</a>
-        <h2>
-            {{RssDataThoiSu?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataThoiSu?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/thoi-su-detail']" routerLinkActive="router-link-active">{{RssDataThoiSu?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursThoisu(0)==0" style="font-size: 10px">{{RssDataThoiSu?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursThoisu(0)!=0" style="font-size: 10px">{{countHoursThoisu(0)}}</p>
-              <p style="font-size: 20px">{{RssDataThoiSu?.rss.channel[0].item[0].description}}</p>
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataCongNghe?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataCongNghe?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursCongNghe(i)!=0" style="font-size: 10px">{{countHoursCongNghe(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
             </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataThoiSu?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/thoi-su-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{RssDataThoiSu?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursThoisu(i)!=0" style="font-size: 10px">{{countHoursThoisu(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
+            <!-- the thao -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataTheThao?.rss!=undefined" style="margin-left: 50px;">{{RssDataTheThao?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTheThao?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataTheThao?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTheThao(i)!=0" style="font-size: 10px">{{countHoursTheThao(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTheThao?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataTheThao?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTheThao(i)!=0" style="font-size: 10px">{{countHoursTheThao(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Kinh Doanh -->
-    <div class="item">
-        <a [routerLink]="['/kinh-doanh']" routerLinkActive="$router_link-active$">Kinh doanh</a>
-        <h2>
-            {{RssDataKinhDoanh?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataKinhDoanh?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/kinh-doanh-detail']" routerLinkActive="router-link-active">{{RssDataKinhDoanh?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursKinhDoanh(0)==0" style="font-size: 10px">{{RssDataKinhDoanh?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursKinhDoanh(0)!=0" style="font-size: 10px">{{countHoursKinhDoanh(0)}}</p>
-              <p style="font-size: 20px">{{RssDataKinhDoanh?.rss.channel[0].item[0].description}}</p>
+            <!-- thoi su -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataThoiSu?.rss!=undefined" style="margin-left: 50px;">{{RssDataThoiSu?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataThoiSu?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataThoiSu?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursThoisu(i)!=0" style="font-size: 10px">{{countHoursThoisu(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataThoiSu?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataThoiSu?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursThoisu(i)!=0" style="font-size: 10px">{{countHoursThoisu(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
             </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataKinhDoanh?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/kinh-doanh-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{RssDataKinhDoanh?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursKinhDoanh(i)!=0" style="font-size: 10px">{{countHoursKinhDoanh(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Giải trí  -->
-    <div class="item">
-        <a [routerLink]="['/giai-tri']" routerLinkActive="$router_link-active$">Giải trí</a>
-        <h2>
-            {{RssDataGiaiTri?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataGiaiTri?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/giai-tri-detail']" routerLinkActive="router-link-active">{{RssDataGiaiTri?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursGiaiTri(0)==0" style="font-size: 10px">{{RssDataGiaiTri?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursGiaiTri(0)!=0" style="font-size: 10px">{{countHoursGiaiTri(0)}}</p>
-              <p style="font-size: 20px">{{RssDataGiaiTri?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataGiaiTri?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/giai-tri-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{RssDataGiaiTri?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursGiaiTri(i)!=0" style="font-size: 10px">{{countHoursGiaiTri(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Thế giới -->
-    <div class="item">
-        <a [routerLink]="['/the-gioi']" routerLinkActive="$router_link-active$">Thế giới</a>
-        <h2>
-            {{RssDataTheGioi?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataTheGioi?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/the-gioi-detail']" routerLinkActive="router-link-active">{{RssDataTheGioi?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursTheGioi(0)==0" style="font-size: 10px">{{RssDataTheGioi?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursTheGioi(0)!=0" style="font-size: 10px">{{countHoursTheGioi(0)}}</p>
-              <p style="font-size: 20px">{{RssDataTheGioi?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataTheGioi?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/the-gioi-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{RssDataTheGioi?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursTheGioi(i)!=0" style="font-size: 10px">{{countHoursTheGioi(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Giáo dục  -->
-    <div class="item">
-        <a [routerLink]="['/giao-duc']" routerLinkActive="$router_link-active$">Giáo dục</a>
-        <h2>
-            {{RssDataGiaoDuc?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataGiaoDuc?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/giao-duc-detail']" routerLinkActive="router-link-active">{{RssDataGiaoDuc?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursGiaoDuc(0)==0" style="font-size: 10px">{{RssDataGiaoDuc?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursGiaoDuc(0)!=0" style="font-size: 10px">{{countHoursGiaoDuc(0)}}</p>
-              <p style="font-size: 20px">{{RssDataGiaoDuc?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataGiaoDuc?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/giao-duc-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{RssDataTheGioi?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursGiaoDuc(i)!=0" style="font-size: 10px">{{countHoursGiaoDuc(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Đời sống -->
-    <div class="item">
-        <a [routerLink]="['/doi-song']" routerLinkActive="$router_link-active$">Đời sống</a>
-        <h2>
-            {{RssDataDoiSong?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataDoiSong?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/doi-song-detail']" routerLinkActive="router-link-active">{{RssDataDoiSong?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursDoiSong(0)==0" style="font-size: 10px">{{RssDataDoiSong?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursDoiSong(0)!=0" style="font-size: 10px">{{countHoursDoiSong(0)}}</p>
-              <p style="font-size: 20px">{{RssDataDoiSong?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataDoiSong?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/doi-song-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{RssDataDoiSong?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursDoiSong(i)!=0" style="font-size: 10px">{{countHoursDoiSong(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Pháp luật  -->
-    <div class="item">
-        <a [routerLink]="['/phap-luat']" routerLinkActive="$router_link-active$">Pháp luật</a>
-        <h2>
-            {{RssDataPhapLuat?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataPhapLuat?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/phap-luat-detail']" routerLinkActive="router-link-active">{{RssDataPhapLuat?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursPhapLuat(0)==0" style="font-size: 10px">{{RssDataPhapLuat?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursPhapLuat(0)!=0" style="font-size: 10px">{{countHoursPhapLuat(0)}}</p>
-              <p style="font-size: 20px">{{RssDataPhapLuat?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataPhapLuat?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/phap-luat-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{RssDataPhapLuat?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursPhapLuat(i)!=0" style="font-size: 10px">{{countHoursPhapLuat(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Thể thao  -->
-    <div class="item">
-        <a [routerLink]="['/the-thao']" routerLinkActive="$router_link-active$">Thể thao</a>
-        <h2>
-            {{RssDataTheThao?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataTheThao?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/the-thao-detail']" routerLinkActive="router-link-active">{{RssDataTheThao?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursTheThao(0)==0" style="font-size: 10px">{{RssDataTheThao?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursTheThao(0)!=0" style="font-size: 10px">{{countHoursTheThao(0)}}</p>
-              <p style="font-size: 20px">{{RssDataTheThao?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataTheThao?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/the-thao-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{RssDataTheThao?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursTheThao(i)!=0" style="font-size: 10px">{{countHoursTheThao(i)}}</p>
-                      </div> </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Công nghệ  -->
-    <div class="item">
-        <a [routerLink]="['/cong-nghe']" routerLinkActive="$router_link-active$">Công nghệ</a>
-        <h2>
-            {{RssDataCongNghe?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataCongNghe?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/cong-nghe-detail']" routerLinkActive="router-link-active">{{RssDataCongNghe?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursCongNghe(0)==0" style="font-size: 10px">{{RssDataCongNghe?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursCongNghe(0)!=0" style="font-size: 10px">{{countHoursCongNghe(0)}}</p>
-              <p style="font-size: 20px">{{RssDataCongNghe?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataCongNghe?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/cong-nghe-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{RssDataCongNghe?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursCongNghe(i)!=0" style="font-size: 10px">{{countHoursCongNghe(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Suc kHỏe  -->
-    <div class="item">
-        <a [routerLink]="['/suc-khoe']" routerLinkActive="$router_link-active$">Sức khỏe</a>
-        <h2>
-            {{RssDataSucKhoe?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataSucKhoe?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/suc-khoe-detail']" routerLinkActive="router-link-active">{{RssDataSucKhoe?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursSucKhoe(0)==0" style="font-size: 10px">{{RssDataSucKhoe?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursSucKhoe(0)!=0" style="font-size: 10px">{{countHoursSucKhoe(0)}}</p>
-              <p style="font-size: 20px">{{RssDataSucKhoe?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataSucKhoe?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/suc-khoe-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{RssDataSucKhoe?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursSucKhoe(i)!=0" style="font-size: 10px">{{countHoursSucKhoe(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Bất động sản  -->
-    <div class="item">
-        <a [routerLink]="['/bat-dong-san']" routerLinkActive="$router_link-active$">Bất động sản</a>
-        <h2>
-            {{RssDataBatDongSan?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataBatDongSan?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/bat-dong-san-detail']" routerLinkActive="router-link-active">{{RssDataBatDongSan?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursBatDongSan(0)==0" style="font-size: 10px">{{RssDataBatDongSan?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursBatDongSan(0)!=0" style="font-size: 10px">{{countHoursBatDongSan(0)}}</p>
-              <p style="font-size: 20px">{{RssDataBatDongSan?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataBatDongSan?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/bat-dong-san-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{RssDataBatDongSan?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursBatDongSan(i)!=0" style="font-size: 10px">{{countHoursBatDongSan(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Bạn đọc  -->
-    <div class="item">
-        <a [routerLink]="['/ban-doc']" routerLinkActive="$router_link-active$">Bạn đọc</a>
-        <h2>
-            {{RssDataBanDoc?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataBanDoc?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/ban-doc-detail']" routerLinkActive="router-link-active">{{RssDataBanDoc?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursBanDoc(0)==0" style="font-size: 10px">{{RssDataBanDoc?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursBanDoc(0)!=0" style="font-size: 10px">{{countHoursBanDoc(0)}}</p>
-              <p style="font-size: 20px">{{RssDataBanDoc?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataBanDoc?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/ban-doc-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{RssDataBanDoc?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursBanDoc(i)!=0" style="font-size: 10px">{{countHoursBanDoc(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Tuần viejt nam  -->
-    <div class="item">
-        <a [routerLink]="['/tuan-vn']" routerLinkActive="$router_link-active$">Tuần Việt Nam</a>
-        <h2>
-            {{RssDataTuanVietNam?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataTuanVietNam?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/tuan-vn-detail']" routerLinkActive="router-link-active">{{RssDataTuanVietNam?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursTuanVn(0)==0" style="font-size: 10px">{{RssDataTuanVietNam?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursTuanVn(0)!=0" style="font-size: 10px">{{countHoursTuanVn(0)}}</p>
-              <p style="font-size: 20px">{{RssDataTuanVietNam?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataTuanVietNam?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/tuan-vn-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{RssDataTuanVietNam?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursTuanVn(i)!=0" style="font-size: 10px">{{countHoursTuanVn(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Xe  -->
-    <div class="item">
-        <a [routerLink]="['/xe']" routerLinkActive="$router_link-active$">Xe</a>
-        <h2>
-            {{RssDataXe?.rss.channel[0].title[0]}}
-        </h2>
-        <div class="grid-item">
-            <div>
-                <img src="{{RssDataXe?.rss.channel[0].item[0].content[0].url}}"><br>
-                <a name="description" (click)="getRssDetail(0)" [routerLink]="['/xe-detail']" routerLinkActive="router-link-active">{{RssDataXe?.rss.channel[0].item[0].title[0]}}</a>
-              <p *ngIf="countHoursXe(0)==0" style="font-size: 10px">{{RssDataXe?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-              <p  *ngIf="countHoursXe(0)!=0" style="font-size: 10px">{{countHoursXe(0)}}</p>
-              <p style="font-size: 20px">{{RssDataXe?.rss.channel[0].item[0].description}}</p>
-            </div>
-            <div>
-                <ul>
-                    <li *ngFor="let o of RssDataXe?.rss.channel[0].item   let i = index  ">
-                        <a *ngIf="i>0 && i<6" (click)="getRssDetail(i)" [routerLink]="['/xe-detail']" routerLinkActive="router-link-active">{{o.title}}</a>
-                      <div *ngIf="i>0 && i<6">
-                        <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{RssDataXe?.rss.channel[0].item[0].pubDate |date:'longDate'}}</p>
-                        <p  *ngIf="countHoursXe(i)!=0" style="font-size: 10px">{{countHoursXe(i)}}</p>
-                      </div>
-                    </li>
-                </ul>
+            <!--Chinh tri  -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataChinhTri?.rss!=undefined" style="margin-left: 50px;">{{RssDataChinhTri?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataChinhTri?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataChinhTri?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursChinhTri(i)!=0" style="font-size: 10px">{{countHoursChinhTri(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataChinhTri?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataChinhTri?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursChinhTri(i)!=0" style="font-size: 10px">{{countHoursChinhTri(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
             </div>
 
+            <!-- Talk -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataTalks?.rss!=undefined" style="margin-left: 50px;">{{RssDataTalks?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTalks?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataTalks?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursTalks(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTalks(i)!=0" style="font-size: 10px">{{countHoursTalks(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTalks?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataTalks?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursTalks(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTalks(i)!=0" style="font-size: 10px">{{countHoursTalks(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!--Kinh Doanh  -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataKinhDoanh?.rss!=undefined" style="margin-left: 50px;">{{RssDataKinhDoanh?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataKinhDoanh?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataKinhDoanh?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursKinhDoanh(i)!=0" style="font-size: 10px">{{countHoursKinhDoanh(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataKinhDoanh?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataKinhDoanh?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursKinhDoanh(i)!=0" style="font-size: 10px">{{countHoursKinhDoanh(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Giai Tri -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataGiaiTri?.rss!=undefined" style="margin-left: 50px;">{{RssDataGiaiTri?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataGiaiTri?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataGiaiTri?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursGiaiTri(i)!=0" style="font-size: 10px">{{countHoursGiaiTri(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataGiaiTri?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataGiaiTri?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursGiaiTri(i)!=0" style="font-size: 10px">{{countHoursGiaiTri(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- The Gioi -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataTheGioi?.rss!=undefined" style="margin-left: 50px;">{{RssDataTheGioi?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTheGioi?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataTheGioi?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTheGioi(i)!=0" style="font-size: 10px">{{countHoursTheGioi(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTheGioi?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataTheGioi?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTheGioi(i)!=0" style="font-size: 10px">{{countHoursTheGioi(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Giao Duc -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataGiaoDuc?.rss!=undefined" style="margin-left: 50px;">{{RssDataGiaoDuc?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataGiaoDuc?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataGiaoDuc?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursGiaoDuc(i)!=0" style="font-size: 10px">{{countHoursGiaoDuc(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataGiaoDuc?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataGiaoDuc?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursGiaoDuc(i)!=0" style="font-size: 10px">{{countHoursGiaoDuc(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Doi Song -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataDoiSong?.rss!=undefined" style="margin-left: 50px;">{{RssDataDoiSong?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataDoiSong?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataDoiSong?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursDoiSong(i)!=0" style="font-size: 10px">{{countHoursDoiSong(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataDoiSong?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataDoiSong?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursDoiSong(i)!=0" style="font-size: 10px">{{countHoursDoiSong(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Phap Luat -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataPhapLuat?.rss!=undefined" style="margin-left: 50px;">{{RssDataPhapLuat?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataPhapLuat?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataPhapLuat?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursPhapLuat(i)!=0" style="font-size: 10px">{{countHoursPhapLuat(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataPhapLuat?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataPhapLuat?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursPhapLuat(i)!=0" style="font-size: 10px">{{countHoursPhapLuat(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Suc Khoe -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataSucKhoe?.rss!=undefined" style="margin-left: 50px;">{{RssDataSucKhoe?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataSucKhoe?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataSucKhoe?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursSucKhoe(i)!=0" style="font-size: 10px">{{countHoursSucKhoe(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataSucKhoe?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataSucKhoe?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursSucKhoe(i)!=0" style="font-size: 10px">{{countHoursSucKhoe(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Bat Dong San -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataBatDongSan?.rss!=undefined" style="margin-left: 50px;">{{RssDataBatDongSan?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataBatDongSan?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataBatDongSan?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursBatDongSan(i)!=0" style="font-size: 10px">{{countHoursBatDongSan(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataBatDongSan?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataBatDongSan?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursBatDongSan(i)!=0" style="font-size: 10px">{{countHoursBatDongSan(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Ban Doc -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataBanDoc?.rss!=undefined" style="margin-left: 50px;">{{RssDataBanDoc?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataBanDoc?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataBanDoc?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursBanDoc(i)!=0" style="font-size: 10px">{{countHoursBanDoc(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataBanDoc?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataBanDoc?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursBanDoc(i)!=0" style="font-size: 10px">{{countHoursBanDoc(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Tuan VN -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataTuanVietNam?.rss!=undefined" style="margin-left: 50px;">{{RssDataTuanVietNam?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTuanVietNam?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataTuanVietNam?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTuanVn(i)!=0" style="font-size: 10px">{{countHoursTuanVn(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTuanVietNam?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataTuanVietNam?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTuanVn(i)!=0" style="font-size: 10px">{{countHoursTuanVn(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Xe -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataXe?.rss!=undefined" style="margin-left: 50px;">{{RssDataXe?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataXe?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataXe?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursXe(i)!=0" style="font-size: 10px">{{countHoursXe(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataXe?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataXe?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursXe(i)!=0" style="font-size: 10px">{{countHoursXe(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Goc Nhin Thang -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataGocNhinThang?.rss!=undefined" style="margin-left: 50px;">{{RssDataGocNhinThang?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataGocNhinThang?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataGocNhinThang?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursGocNhinThang(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursGocNhinThang(i)!=0" style="font-size: 10px">{{countHoursGocNhinThang(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataGocNhinThang?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataGocNhinThang?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursGocNhinThang(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursGocNhinThang(i)!=0" style="font-size: 10px">{{countHoursGocNhinThang(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Tin Moi Nong -->
+            <div class="row">
+                <!--  -->
+                <h3 *ngIf="RssDataTinMoiNong?.rss!=undefined" style="margin-left: 50px;">{{RssDataTinMoiNong?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTinMoiNong?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataTinMoiNong?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursTinMoiNong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTinMoiNong(i)!=0" style="font-size: 10px">{{countHoursTinMoiNong(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTinMoiNong?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataTinMoiNong?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursTinMoiNong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTinMoiNong(i)!=0" style="font-size: 10px">{{countHoursTinMoiNong(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+            <!-- Tin Moi Nhat -->
+            <div class="row">
+
+                <h3 *ngIf="RssDataTinMoiNhat?.rss!=undefined" style="margin-left: 50px;">{{RssDataTinMoiNhat?.rss.channel[0].title}}</h3>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 main-content-left" *ngIf="RssDataTinMoiNhat?.rss!=undefined">
+
+                    <ul *ngFor=" let o of RssDataTinMoiNhat?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHoursTinMoiNhat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTinMoiNhat(i)!=0" style="font-size: 10px">{{countHoursTinMoiNhat(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 main-content-right">
+
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" *ngIf="RssDataTinMoiNhat?.rss!=undefined">
+                        <div *cdkVirtualFor="let o of RssDataTinMoiNhat?.rss.channel[0].item;let i = index" class="example-item main-content-right">
+                            <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                                <p>{{ o.title }}</p>
+                                <p *ngIf="countHoursTinMoiNhat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTinMoiNhat(i)!=0" style="font-size: 10px">{{countHoursTinMoiNhat(i)}}</p>
+                            </a>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
+            <app-tin-moi-nong></app-tin-moi-nong>
         </div>
     </div>
-    <!-- video -->
-    <div class="item">
-        <a [routerLink]="['/video']" routerLinkActive="$router_link-active$">Video</a>
-    </div>
-
 
 </div>

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { HomeComponent } from './home/home.component';
 import { ChinhTriComponent } from './chinh-tri/chinh-tri.component';
 import { ThoiSuComponent } from './thoi-su/thoi-su.component';
@@ -58,7 +58,11 @@ import { TinMoiNongComponent } from './tin-moi-nong/tin-moi-nong.component';
 import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { GocNhinThangComponent } from './goc-nhin-thang/goc-nhin-thang.component';
+import { GocNhinThangDetailComponent } from './goc-nhin-thang/goc-nhin-thang-detail/goc-nhin-thang-detail.component';
+import { TalksComponent } from './talks/talks.component';
+import { TalksDetailComponent } from './talks/talks-detail/talks-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,6 +115,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ResultSearchComponent,
     TinMoiNongComponent,
     TinMoiNongDetailComponent,
+    GocNhinThangComponent,
+    GocNhinThangDetailComponent,
+    TalksComponent,
+    TalksDetailComponent,
   ],
   imports: [
     IvyCarouselModule,
@@ -121,7 +129,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     MatGridListModule,
     FormsModule,
-    NgxPaginationModule,
+    NgxPaginationModule, ScrollingModule,MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-xs-9 col-sm-9 col-md-9">
+            <!-- main-content -->.
+            <div class="row">
+                <!--  -->
+                <div class="col-lg-8 main-content-left" *ngIf="RssDataTalks?.rss!=undefined">
+                    <ul *ngFor=" let o of RssDataTalks?.rss.channel[0].item;  let i = index ">
+                        <li *ngIf="i == 0">
+                            <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            <h3>
+                                <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
+                            </h3>
+                            <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
+                            <p>{{ o.description }}...</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div class="col-lg-4 main-content-right" *ngIf="RssDataTalks?.rss!=undefined">
+                    <table *ngFor="  let o of RssDataTalks?.rss.channel[0].item;let i = index ">
+                        <tr class="row" *ngIf="i > 0 && i <=5">
+
+                            <td class="col-lg-5 col-sm-5 col-xs-5">
+                                <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style="width: 100%" src="{{ o.content[0].url }}" /></a>
+                            </td>
+                            <td class="col-lg-7 col-sm-7 col-xs-7"> <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                              {{ o.title }}
+                              <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                              <p  *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
+                            </a></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <hr />
+            <hr />
+            <!-- news-content -->
+            <div class="row news-content" *ngIf="RssDataTalks?.rss!=undefined">
+
+                <table *ngFor="let o of RssDataTalks?.rss.channel[0].item; let i = index">
+
+                    <tr class="row" *ngIf="i >= 6">
+                        <td class="col-lg-4 col-sm-4 col-xs-4">
+                            <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active"><img style=" width: 100%" src="{{ o.content[0].url }}" /></a>
+                        </td>
+                        <td class="col-lg-8 col-sm-8 col-xs-8 texttop">
+
+                            <div class="description">
+                                <h3><a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+                              {{ o.title }}
+                            </a></h3>
+                                <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
+                                <p>{{o.description}}</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
+            <app-tin-moi-nong></app-tin-moi-nong>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ export class BanDocDetailComponent implements OnInit {
   RssDataBanDoc: Rss | any;
   index = 0;
   encoded: Array<string> | any;
+  title: string = '';
   constructor(
     private https: HttpClient,
     private newrssservice: NewRssService,
@@ -35,6 +36,10 @@ export class BanDocDetailComponent implements OnInit {
           this.RssDataBanDoc.rss.channel[0].item[
             this.newrssservicedetail.index
           ].encoded;
+        this.title =
+          this.RssDataBanDoc.rss.channel[0].item[
+            this.newrssservicedetail.index
+          ].title;
       });
     });
   }
