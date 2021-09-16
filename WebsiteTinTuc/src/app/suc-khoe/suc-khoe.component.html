@@ -11,7 +11,7 @@
                             <h3>
                                 <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -27,7 +27,7 @@
                             </td>
                             <td class="col-lg-7 col-sm-7 col-xs-7"> <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                             {{ o.title }}
-                            <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p  *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
                           </a></td>
                         </tr>
@@ -52,7 +52,7 @@
                                 <h3><a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                             {{ o.title }}
                           </a></h3>
-                                <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHours(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHours(i)!=0" style="font-size: 10px">{{countHours(i)}}</p>
                                 <p>{{o.description}}</p>
                             </div>

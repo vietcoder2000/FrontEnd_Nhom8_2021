@@ -50,6 +50,7 @@ import { TalksDetailComponent } from './talks/talks-detail/talks-detail.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResultSearchComponent } from './result-search/result-search.component';
 import { TinMoiNongDetailComponent } from './tin-moi-nong/tin-moi-nong-detail/tin-moi-nong-detail.component';
+import {TinMoiNhatDetailComponent} from "./tin-moi-nhat/tin-moi-nhat-detail/tin-moi-nhat-detail.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -98,7 +99,9 @@ const routes: Routes = [
   { path: 'khoi-phuc', component: KhoiPhucMKComponent },
   { path: 'thanh-vien', component: ThanhVienComponent },
   { path: 'result-search', component: ResultSearchComponent },
+  {path:'tin-moi-nhat-detail',component:TinMoiNhatDetailComponent},
   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({

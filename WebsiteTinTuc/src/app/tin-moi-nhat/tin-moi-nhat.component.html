@@ -1,0 +1,10 @@
+<carousel class="carousel-main" [objectFit]="'cover'" [arrowsOutside]="true" [cellsToShow]="1" [autoplayInterval]="5000" [transitionDuration]="700" [height]="50" [autoplay]="true" [loop]="true" *ngIf="RssDataTinMoiNhat?.rss!=undefined">
+  <div class="carousel-cell " *ngFor="let o of RssDataTinMoiNhat?.rss.channel[0].item;  let i = index">
+
+    <div class="carousel-content">
+      <a class="col-xs-12" [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
+        <h4 class="title">#{{ o.title }}</h4>
+      </a>
+    </div>
+  </div>
+</carousel>

@@ -63,6 +63,9 @@ import { GocNhinThangComponent } from './goc-nhin-thang/goc-nhin-thang.component
 import { GocNhinThangDetailComponent } from './goc-nhin-thang/goc-nhin-thang-detail/goc-nhin-thang-detail.component';
 import { TalksComponent } from './talks/talks.component';
 import { TalksDetailComponent } from './talks/talks-detail/talks-detail.component';
+import {TinMoiNhatComponent} from "./tin-moi-nhat/tin-moi-nhat.component";
+import { TinMoiNhatDetailComponent } from './tin-moi-nhat/tin-moi-nhat-detail/tin-moi-nhat-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,6 +122,8 @@ import { TalksDetailComponent } from './talks/talks-detail/talks-detail.componen
     GocNhinThangDetailComponent,
     TalksComponent,
     TalksDetailComponent,
+    TinMoiNhatComponent,
+    TinMoiNhatDetailComponent,
   ],
   imports: [
     IvyCarouselModule,
