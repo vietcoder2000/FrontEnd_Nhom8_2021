@@ -13,7 +13,7 @@
                             <h3>
                                 <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursCongNghe(i)!=0" style="font-size: 10px">{{countHoursCongNghe(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -26,7 +26,7 @@
                         <div *cdkVirtualFor="let o of RssDataCongNghe?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/cong-nghe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursCongNghe(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursCongNghe(i)!=0" style="font-size: 10px">{{countHoursCongNghe(i)}}</p>
                             </a>
                         </div>
@@ -46,7 +46,7 @@
                             <h3>
                                 <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursTheThao(i)!=0" style="font-size: 10px">{{countHoursTheThao(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -59,7 +59,7 @@
                         <div *cdkVirtualFor="let o of RssDataTheThao?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/the-thao-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTheThao(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursTheThao(i)!=0" style="font-size: 10px">{{countHoursTheThao(i)}}</p>
                             </a>
                         </div>
@@ -79,7 +79,7 @@
                             <h3>
                                 <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursThoisu(i)!=0" style="font-size: 10px">{{countHoursThoisu(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -92,7 +92,7 @@
                         <div *cdkVirtualFor="let o of RssDataThoiSu?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/thoi-su-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursThoisu(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursThoisu(i)!=0" style="font-size: 10px">{{countHoursThoisu(i)}}</p>
                             </a>
                         </div>
@@ -112,7 +112,7 @@
                             <h3>
                                 <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursChinhTri(i)!=0" style="font-size: 10px">{{countHoursChinhTri(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -125,7 +125,7 @@
                         <div *cdkVirtualFor="let o of RssDataChinhTri?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/chinh-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursChinhTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursChinhTri(i)!=0" style="font-size: 10px">{{countHoursChinhTri(i)}}</p>
                             </a>
                         </div>
@@ -146,7 +146,7 @@
                             <h3>
                                 <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursTalks(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTalks(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursTalks(i)!=0" style="font-size: 10px">{{countHoursTalks(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -159,7 +159,7 @@
                         <div *cdkVirtualFor="let o of RssDataTalks?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/talks-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursTalks(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTalks(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursTalks(i)!=0" style="font-size: 10px">{{countHoursTalks(i)}}</p>
                             </a>
                         </div>
@@ -179,7 +179,7 @@
                             <h3>
                                 <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursKinhDoanh(i)!=0" style="font-size: 10px">{{countHoursKinhDoanh(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -192,7 +192,7 @@
                         <div *cdkVirtualFor="let o of RssDataKinhDoanh?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/kinh-doanh-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursKinhDoanh(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursKinhDoanh(i)!=0" style="font-size: 10px">{{countHoursKinhDoanh(i)}}</p>
                             </a>
                         </div>
@@ -212,7 +212,7 @@
                             <h3>
                                 <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursGiaiTri(i)!=0" style="font-size: 10px">{{countHoursGiaiTri(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -225,7 +225,7 @@
                         <div *cdkVirtualFor="let o of RssDataGiaiTri?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/giai-tri-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursGiaiTri(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursGiaiTri(i)!=0" style="font-size: 10px">{{countHoursGiaiTri(i)}}</p>
                             </a>
                         </div>
@@ -245,7 +245,7 @@
                             <h3>
                                 <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursTheGioi(i)!=0" style="font-size: 10px">{{countHoursTheGioi(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -258,7 +258,7 @@
                         <div *cdkVirtualFor="let o of RssDataTheGioi?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/the-gioi-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTheGioi(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursTheGioi(i)!=0" style="font-size: 10px">{{countHoursTheGioi(i)}}</p>
                             </a>
                         </div>
@@ -278,7 +278,7 @@
                             <h3>
                                 <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursGiaoDuc(i)!=0" style="font-size: 10px">{{countHoursGiaoDuc(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -291,7 +291,7 @@
                         <div *cdkVirtualFor="let o of RssDataGiaoDuc?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/giao-duc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursGiaoDuc(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursGiaoDuc(i)!=0" style="font-size: 10px">{{countHoursGiaoDuc(i)}}</p>
                             </a>
                         </div>
@@ -311,7 +311,7 @@
                             <h3>
                                 <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursDoiSong(i)!=0" style="font-size: 10px">{{countHoursDoiSong(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -324,7 +324,7 @@
                         <div *cdkVirtualFor="let o of RssDataDoiSong?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/doi-song-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursDoiSong(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursDoiSong(i)!=0" style="font-size: 10px">{{countHoursDoiSong(i)}}</p>
                             </a>
                         </div>
@@ -344,7 +344,7 @@
                             <h3>
                                 <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursPhapLuat(i)!=0" style="font-size: 10px">{{countHoursPhapLuat(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -357,7 +357,7 @@
                         <div *cdkVirtualFor="let o of RssDataPhapLuat?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/phap-luat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursPhapLuat(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursPhapLuat(i)!=0" style="font-size: 10px">{{countHoursPhapLuat(i)}}</p>
                             </a>
                         </div>
@@ -377,7 +377,7 @@
                             <h3>
                                 <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursSucKhoe(i)!=0" style="font-size: 10px">{{countHoursSucKhoe(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -390,7 +390,7 @@
                         <div *cdkVirtualFor="let o of RssDataSucKhoe?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/suc-khoe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursSucKhoe(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursSucKhoe(i)!=0" style="font-size: 10px">{{countHoursSucKhoe(i)}}</p>
                             </a>
                         </div>
@@ -410,7 +410,7 @@
                             <h3>
                                 <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursBatDongSan(i)!=0" style="font-size: 10px">{{countHoursBatDongSan(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -423,7 +423,7 @@
                         <div *cdkVirtualFor="let o of RssDataBatDongSan?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/bat-dong-san-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursBatDongSan(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursBatDongSan(i)!=0" style="font-size: 10px">{{countHoursBatDongSan(i)}}</p>
                             </a>
                         </div>
@@ -443,7 +443,7 @@
                             <h3>
                                 <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursBanDoc(i)!=0" style="font-size: 10px">{{countHoursBanDoc(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -456,7 +456,7 @@
                         <div *cdkVirtualFor="let o of RssDataBanDoc?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/ban-doc-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursBanDoc(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursBanDoc(i)!=0" style="font-size: 10px">{{countHoursBanDoc(i)}}</p>
                             </a>
                         </div>
@@ -476,7 +476,7 @@
                             <h3>
                                 <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursTuanVn(i)!=0" style="font-size: 10px">{{countHoursTuanVn(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -489,7 +489,7 @@
                         <div *cdkVirtualFor="let o of RssDataTuanVietNam?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/tuan-vn-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTuanVn(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursTuanVn(i)!=0" style="font-size: 10px">{{countHoursTuanVn(i)}}</p>
                             </a>
                         </div>
@@ -509,7 +509,7 @@
                             <h3>
                                 <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursXe(i)!=0" style="font-size: 10px">{{countHoursXe(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -522,7 +522,7 @@
                         <div *cdkVirtualFor="let o of RssDataXe?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/xe-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursXe(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursXe(i)!=0" style="font-size: 10px">{{countHoursXe(i)}}</p>
                             </a>
                         </div>
@@ -542,7 +542,7 @@
                             <h3>
                                 <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursGocNhinThang(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursGocNhinThang(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursGocNhinThang(i)!=0" style="font-size: 10px">{{countHoursGocNhinThang(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -555,7 +555,7 @@
                         <div *cdkVirtualFor="let o of RssDataGocNhinThang?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/goc-nhin-thang-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursGocNhinThang(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursGocNhinThang(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursGocNhinThang(i)!=0" style="font-size: 10px">{{countHoursGocNhinThang(i)}}</p>
                             </a>
                         </div>
@@ -575,7 +575,7 @@
                             <h3>
                                 <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursTinMoiNong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTinMoiNong(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursTinMoiNong(i)!=0" style="font-size: 10px">{{countHoursTinMoiNong(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -588,7 +588,7 @@
                         <div *cdkVirtualFor="let o of RssDataTinMoiNong?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/tin-moi-nong-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursTinMoiNong(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTinMoiNong(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursTinMoiNong(i)!=0" style="font-size: 10px">{{countHoursTinMoiNong(i)}}</p>
                             </a>
                         </div>
@@ -608,7 +608,7 @@
                             <h3>
                                 <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">{{ o.title }}</a>
                             </h3>
-                            <p *ngIf="countHoursTinMoiNhat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                            <p *ngIf="countHoursTinMoiNhat(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                             <p *ngIf="countHoursTinMoiNhat(i)!=0" style="font-size: 10px">{{countHoursTinMoiNhat(i)}}</p>
                             <p>{{ o.description }}...</p>
                         </li>
@@ -621,7 +621,7 @@
                         <div *cdkVirtualFor="let o of RssDataTinMoiNhat?.rss.channel[0].item;let i = index" class="example-item main-content-right">
                             <a [routerLink]="['/tin-moi-nhat-detail']" (click)="getRssDetail(i)" routerLinkActive="router-link-active">
                                 <p>{{ o.title }}</p>
-                                <p *ngIf="countHoursTinMoiNhat(i)==0" style="font-size: 10px">{{o.pubDate |date:'longDate'}}</p>
+                                <p *ngIf="countHoursTinMoiNhat(i)==0" style="font-size: 10px">{{o.pubDate |date:'dd/MM/yyyy'}}</p>
                                 <p *ngIf="countHoursTinMoiNhat(i)!=0" style="font-size: 10px">{{countHoursTinMoiNhat(i)}}</p>
                             </a>
                         </div>
