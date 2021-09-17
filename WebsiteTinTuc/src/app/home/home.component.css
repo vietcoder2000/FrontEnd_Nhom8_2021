@@ -43,3 +43,18 @@
     color: rgba(223, 20, 20, 0.9);
     text-decoration: none;
 }
+
+@media screen and (max-width:500px) {
+    h3 {
+        font-size: 18px;
+    }
+    p {
+        font-size: 12px;
+    }
+    .cdk-virtual-scroll-viewport {
+        overflow: hidden;
+    }
+    .example-viewport {
+        height: 350px;
+    }
+}
