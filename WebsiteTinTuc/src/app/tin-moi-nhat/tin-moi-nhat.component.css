@@ -1,27 +1,19 @@
 .carousel-content a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .carousel-main {
-  z-index: 0;
-  width: 35%;
-  margin-left: 250px;
-  margin-top: -45px;
-
+    z-index: 0;
+    width: 80%;
 }
 
 .carousel-content a .title {
-  color: #545454;
-  /*font-weight: bold;*/
-  line-height: 1.4;
-  font-size: 15px;
+    color: #545454;
+    /*font-weight: bold;*/
+    line-height: 1.4;
+    font-size: 15px;
 }
 
 .carousel-content a:hover .title {
-  color: #971927;
-}
-
-h3 {
-  color: #971927;
-  font-weight: bold;
+    color: #971927;
 }

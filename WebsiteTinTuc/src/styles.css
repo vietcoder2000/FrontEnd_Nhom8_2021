@@ -7,6 +7,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 .content-detail a {
     color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+img:hover {
+    transition: transform 0.4s linear;
+    transform: scale(1.01);
+}
+
+@media screen and (max-width:450px) {
+    .title-skn {
+        font-size: 16px;
+    }
 }
 
 .title-detail {

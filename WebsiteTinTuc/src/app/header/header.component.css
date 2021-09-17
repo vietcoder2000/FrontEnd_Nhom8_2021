@@ -65,7 +65,7 @@
         top: 15px;
     }
 
-    .search .iconSearch  {
+    .search .iconSearch {
         position: absolute;
         font-size: 17px;
         top: 15px;
@@ -166,7 +166,8 @@
     }
 
     @media screen and (max-width:770px) {
-        .btnHeader {
+        .btnHeader,
+        .iconHeader {
             display: none;
         }
     }
